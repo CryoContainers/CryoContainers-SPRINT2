@@ -219,7 +219,6 @@ DESC sensor;
 
 DESC Container;
 
-DESC Empresa;
 
 DESC Cliente_da_Empresa;
 
