@@ -15,8 +15,10 @@ CREATE TABLE cadastro (
     email VARCHAR(255) NOT NULL,
     cpf CHAR(11) NOT NULL UNIQUE,
     senha VARCHAR(200) NOT NULL,
-    fk_empresa INT NOT NULL,
-    CONSTRAINT ckFK_empresa FOREIGN KEY (fk_empresa)
+    administrador TINYINT(1) DEFAULT 0,
+    fk_empresa INT NULL,
+    CONSTRAINT ckAdmin CHECK (administrador IN(0,1)),
+    CONSTRAINT ckFk_empresa FOREIGN KEY (fk_empresa)
     REFERENCES empresa (id_empresa)
 );
 
