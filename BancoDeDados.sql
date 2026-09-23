@@ -2,14 +2,14 @@ CREATE DATABASE MONITORAMENTO;
 
 USE MONITORAMENTO;
 
-CREATE TABLE empresa ( 
+CREATE TABLE empresa (
     id_empresa INT AUTO_INCREMENT PRIMARY KEY,
     nome_empresa VARCHAR(50) NOT NULL,
     cnpj CHAR(14) NOT NULL UNIQUE
 );
 
 CREATE TABLE cadastro (
-	id_cadastro INT AUTO_INCREMENT PRIMARY KEY,
+    id_cadastro INT AUTO_INCREMENT PRIMARY KEY,
     nome_cadastro VARCHAR(45) NOT NULL,
     telefone VARCHAR(20) NULL UNIQUE,
     email VARCHAR(255) NOT NULL,
@@ -26,7 +26,7 @@ CREATE TABLE cadastro (
 CREATE TABLE conteiner (
     id_conteiner INT PRIMARY KEY AUTO_INCREMENT,
     fk_empresa INT NOT NULL,
-	CONSTRAINT ckFk_empresa FOREIGN KEY (fk_empresa)
+    CONSTRAINT ckFk_empresa FOREIGN KEY (fk_empresa) 
     REFERENCES empresa (id_empresa)
 );
 
