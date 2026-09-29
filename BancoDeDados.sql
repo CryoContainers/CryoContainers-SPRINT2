@@ -4,7 +4,8 @@ USE MONITORAMENTO;
 
 CREATE TABLE empresa (
     id_empresa INT AUTO_INCREMENT PRIMARY KEY,
-    nome_empresa VARCHAR(50) NOT NULL,
+    codigo_ativacao VARCHAR(50),
+    razao_social VARCHAR(50) NOT NULL,
     cnpj CHAR(14) NOT NULL UNIQUE
 );
 
@@ -18,7 +19,7 @@ CREATE TABLE cadastro (
     administrador TINYINT(1) DEFAULT 0,
     fk_empresa INT NULL,
     CONSTRAINT ckAdmin CHECK (administrador IN(0,1)),
-    CONSTRAINT ckFk_empresa FOREIGN KEY (fk_empresa)
+    CONSTRAINT ckFk_empresa_cadastro FOREIGN KEY (fk_empresa)
     REFERENCES empresa (id_empresa)
 );
 
@@ -26,7 +27,7 @@ CREATE TABLE cadastro (
 CREATE TABLE conteiner (
     id_conteiner INT PRIMARY KEY AUTO_INCREMENT,
     fk_empresa INT NOT NULL,
-    CONSTRAINT ckFk_empresa FOREIGN KEY (fk_empresa) 
+    CONSTRAINT ckFk_empresa_conteiner FOREIGN KEY (fk_empresa) 
     REFERENCES empresa (id_empresa)
 );
 
