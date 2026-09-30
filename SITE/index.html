@@ -10,9 +10,38 @@
 
 <body>
     <div class="boxPai">
-        <div class="header"></div>
-        <div class="menu"></div>
-        <div class="box1"></div>
+        <div class="header">
+            <p>Do mar ao destino, precisão que preserva a qualidade</p>
+        </div>
+        <div class="menu">
+            <div class="botoesMenu">
+                <button onclick="" class="botoes">Inicio</button>
+                <button onclick="" class="botoes">Sobre nós</button>
+                <button onclick="" class="botoes">Valores</button>
+                <button onclick="" class="botoes">Nosso produto</button>
+                <button onclick="" class="botoes">Suporte</button>
+            </div>
+
+            <div class="areaCadastro">
+                <button onclick="" class="botaoCadastro">Cadastro</button>
+            </div>
+        </div>
+        <div class="box1">
+            <div class="textoBox1">
+                <div class="subtitulo inter">
+                    <p>MONITORAMENTO DE TEMPERATURA EM</p>
+                </div>
+                <div class="titulo junge tamanhoTitulo">
+                    <p>Containers Refrigerados<br>em cargas de <spam class="kapakana corAtum">atum</spam></p>
+                </div>
+                <div class="subtitulo1 Inter">
+                    <p>Para proteger a qualidade em cada etapa <br>do transporte</p>
+                </div>
+            </div>
+            <div class="imagemNavio">
+                <img src="Mask group.png" alt="navioIndex">
+            </div>
+        </div>
         <div class="box2"></div>
         <div class="box3"></div>
         <div class="box4"></div>
@@ -48,12 +77,12 @@
 
         div_mensagem.innerHTML =
             `Você transporta ${cargas_ano} cargas por ano.<br>
-            Isso representa ${kg_total} kg de atum transportados por ano.<br><br>
+            Isso representa ${kg_total.toFixed(2)} kg de atum transportados por ano.<br><br>
 
-            Com uma perda de 5%, são perdidos ${percent_perda} kg por ano.<br>
-            Nas duas viagens extremas, são perdidos mais ${perda_extrema} kg.<br><br>
+            Com uma perda de 5%, são perdidos ${percent_perda.toFixed(2)} kg por ano.<br>
+            Nas duas viagens extremas, são perdidos mais ${perda_extrema.toFixed(2)} kg.<br><br>
 
-            A perda total estimada é de ${perda_total} kg de atum.<br>
-            O prejuízo estimado é de US$ ${prejuizo}.`;
+            A perda total estimada é de ${perda_total.toFixed(2)} kg de atum.<br>
+            O prejuízo estimado é de US$ ${prejuizo.toFixed(2)}.`;
     }
 </script>

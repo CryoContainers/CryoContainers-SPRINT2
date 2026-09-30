@@ -40,3 +40,10 @@ CREATE TABLE sensor (
     CONSTRAINT ckFK_conteiner FOREIGN KEY (fk_conteiner)
     REFERENCES conteiner (id_conteiner)
 );
+
+CREATE USER 'inserirDadosTemperatura'@'%' IDENTIFIED BY 'inserirDadosTemperatura';
+
+GRANT INSERT, SELECT ON MONITORAMENTO.sensor TO 'inserirDadosTemperatura'@'%';
+
+
+
