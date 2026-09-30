@@ -1,11 +1,13 @@
 <!DOCTYPE html>
 <html lang="en">
+
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>CryoContainers</title>
     <link rel="stylesheet" href="style.css">
 </head>
+
 <body>
     <div class="boxPai">
         <div class="header"></div>
@@ -14,10 +16,44 @@
         <div class="box2"></div>
         <div class="box3"></div>
         <div class="box4"></div>
-        <div class="calculadora"></div>
+        <div class="calculadora">
+
+            Quantas cargas você carrega por mês? <input id="ipt_cargas_mes"><br><br>
+            Quantos kg você carrega por carga? <input id="ipt_kg_carga"><br><br>
+
+            <button onclick="calculadora_atum()">Cálculo Atum</button>
+
+            <div id="div_mensagem"></div>
+            <!-- Somente para utilização no script, pode ser apagado ou modificado no futuro -->
+
+        </div>
         <div class="box6"></div>
         <div class="footer"></div>
     </div>
-    
 </body>
+
 </html>
+<script>
+
+    function calculadora_atum() {
+        let cargas_mes = Number(ipt_cargas_mes.value); // Quantidade de cargas transportadas por mês
+        let kg_carga = Number(ipt_kg_carga.value); // Quantidade de kg de atum transportados em cada carga
+        let cargas_ano = cargas_mes * 12; // Quantidade de cargas transportadas durante o ano
+        let kg_total = cargas_ano * kg_carga; // Quantidade total de kg de atum transportados no ano
+        let percent_perda = kg_total * 0.05; // 5% de perda sobre o total transportado no ano
+        let perda_extrema = kg_carga * 0.20 * 2; // Perda de 20% em duas viagens extremas
+        let perda_total = percent_perda + perda_extrema; // Soma das perdas normais com as duas perdas extremas
+        let valor_kg = 8; // Valor de referência de cada kg de atum em dólares
+        let prejuizo = perda_total * valor_kg; // Valor total da perda em dólares
+
+        div_mensagem.innerHTML =
+            `Você transporta ${cargas_ano} cargas por ano.<br>
+            Isso representa ${kg_total} kg de atum transportados por ano.<br><br>
+
+            Com uma perda de 5%, são perdidos ${percent_perda} kg por ano.<br>
+            Nas duas viagens extremas, são perdidos mais ${perda_extrema} kg.<br><br>
+
+            A perda total estimada é de ${perda_total} kg de atum.<br>
+            O prejuízo estimado é de US$ ${prejuizo}.`;
+    }
+</script>
