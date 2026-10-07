@@ -8,6 +8,11 @@
 .inter {
     font-family: Inter;
 }
+.interLight {
+    font-family: Inter;
+    font-weight: light;
+    font-size: 12px;
+}
 
 .junge {
     font-family: Junge;
@@ -101,7 +106,7 @@
 
     display: flex;
     width: 100%;
-    height: 700px;
+    height: 650px;
     background-color: #FFFDF4;
     position: relative;
     align-items: center;
@@ -109,7 +114,7 @@
 }
 
 .textoBox1 {
-
+    margin-top: 100px;
     position: relative;
     z-index: 1;
     overflow: hidden;      
@@ -117,6 +122,9 @@
 
 .titulo {
     margin-left: 100px;
+    color: #063354;
+    font-size: 45px;
+    line-height: 55px;
 }
 
 .subtitulo {
@@ -137,12 +145,12 @@
     display: flex;
     align-items: center;
     gap: 12px;
-    font-size: 21px;
+    margin-top: 10px;
+    font-size: 15px;
     letter-spacing: 1px;
     color: #333;
-    margin-left: 100px;
+    margin-left: 110px;
     margin-bottom: 10px;
-
 }
 
 .subtitulo::before {
@@ -158,10 +166,17 @@
 
     display: flex;
     justify-content: flex-end;
-    height: 700px;
+    height: 650px;
     position: absolute;
     top: 0; 
     right: 0;
+
+}
+
+.imagemPeixes {
+    display: flex;
+    justify-content: flex-end;
+   
 
 }
 
@@ -170,6 +185,8 @@
     width: 100%;
     height: 287px;
     background-color: rgb(92, 92, 161);
+    background: linear-gradient(90deg, #063354, #064879);
+    overflow: hidden;
 
 }
 
