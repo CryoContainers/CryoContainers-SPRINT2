@@ -1,16 +1,20 @@
-
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Junge&family=Kapakana:wght@300..400&display=swap');
 
 * {
     margin: 0px;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 .inter {
     font-family: Inter;
 }
+
 .interLight {
     font-family: Inter;
-    font-weight: light;
+    font-weight: 300;
     font-size: 12px;
 }
 
@@ -24,7 +28,7 @@
 
 .corAtum {
     color: #D76F58;
-    font-size: 100px;   
+    font-size: 100px;
 }
 
 .tamanhoTitulo {
@@ -32,7 +36,6 @@
 }
 
 .header {
-
     width: 100%;
     height: 32px;
     background-color: #063354;
@@ -42,11 +45,9 @@
     justify-content: center;
     align-items: center;
     font-size: 12px;
-
 }
 
 .menu {
-
     width: 100%;
     height: 69px;
     background-color: #FFFDF4;
@@ -55,26 +56,22 @@
     align-items: center;
     position: relative;
     border-bottom: solid #D8D8D8 1px;
-    
 }
 
 .botoesMenu {
-
     display: flex;
     justify-content: center;
     align-items: center;
     gap: 100px;
-
 }
 
 .botoes {
-
     background-color: #FFFDF4;
     border: 0px;
     color: #063354;
     font-family: Inter;
     font-size: medium;
-
+    text-decoration: none;
 }
 
 .areaCadastro {
@@ -90,34 +87,31 @@
     display: flex;
     position: end;
     color: white;
-    background: linear-gradient(90deg, #063354,#008080 );
+    background: linear-gradient(90deg, #063354, #008080);
     border: solid 0px;
     border-radius: 5px;
     height: 30px;
     width: 150px;
     align-items: center;
     justify-content: center;
-    font-family: Inter,Arial,Helvetica;
+    font-family: Inter, Arial, Helvetica;
     font-size: medium;
-    
 }
 
 .box1 {
-
     display: flex;
     width: 100%;
     height: 650px;
     background-color: #FFFDF4;
     position: relative;
     align-items: center;
-    
 }
 
 .textoBox1 {
     margin-top: 100px;
     position: relative;
     z-index: 1;
-    overflow: hidden;      
+    overflow: hidden;
 }
 
 .titulo {
@@ -128,7 +122,6 @@
 }
 
 .subtitulo {
-
     display: flex;
     align-items: center;
     gap: 12px;
@@ -137,11 +130,9 @@
     color: #333;
     margin-left: 100px;
     margin-bottom: 10px;
-
 }
 
 .subtitulo1 {
-
     display: flex;
     align-items: center;
     gap: 12px;
@@ -154,77 +145,139 @@
 }
 
 .subtitulo::before {
-
     content: "";
     width: 50px;
     height: 1px;
     background-color: #e07a5f;
 }
 
-
 .imagemNavio {
-
     display: flex;
     justify-content: flex-end;
     height: 650px;
     position: absolute;
-    top: 0; 
+    top: 0;
     right: 0;
-
-}
-
-.imagemPeixes {
-    display: flex;
-    justify-content: flex-end;
-   
-
 }
 
 .box2 {
-
+    position: relative;
     width: 100%;
-    height: 287px;
-    background-color: rgb(92, 92, 161);
+    height: 320px;
     background: linear-gradient(90deg, #063354, #064879);
+    display: flex;
+    align-items: center;
     overflow: hidden;
+}
 
+.labelBox2 {
+    position: absolute;
+    top: 36px;
+    left: 47px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    font-size: 12px;
+    text-transform: uppercase;
+    color: white;
+}
+
+.labelBox2::before {
+    content: "";
+    width: 32px;
+    height: 1px;
+    background-color: white;
+}
+
+.textoBox2 {
+    position: relative;
+    z-index: 1;
+    margin-left: 191px;
+    max-width: 580px;
+    color: white;
+}
+
+.chamadaBox2 {
+    font-size: 12px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.tituloBox2 {
+    font-size: 40px;
+    font-weight: 400;
+    line-height: 1;
+}
+
+.corDestaque {
+    color: #E07A5F;
+}
+
+.fraseBox2 {
+    font-size: 14px;
+    font-style: italic;
+    margin: 4px 0 14px;
+}
+
+.descricaoBox2 {
+    font-size: 15px;
+    line-height: 1.3;
+    margin-bottom: 28px;
+}
+
+.linkBox2 {
+    display: inline-flex;
+    align-items: center;
+    gap: 14px;
+    font-size: 12px;
+    color: white;
+    text-decoration: none;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.6);
+    padding-bottom: 4px;
+}
+
+.setaLink {
+    color: #E07A5F;
+}
+
+.imagemPeixes {
+    position: absolute;
+    top: 0;
+    right: 0;
+    height: 100%;
+}
+
+.imagemPeixes img {
+    height: 100%;
+    display: block;
 }
 
 .box3 {
-
     width: 100%;
     height: 594px;
     background-color: rgb(7, 7, 226);
-
 }
 
 .box4 {
-
     width: 100%;
     height: 602px;
     background-color: rgb(26, 26, 40);
-
 }
 
 .calculadora {
-
     width: 100%;
     height: 602px;
     background-color: rgb(248, 248, 248);
 }
 
 .box6 {
-
     width: 100%;
     height: 140px;
     background-color: rgb(233, 239, 174);
-
 }
 
 .footer {
-
     width: 100%;
     height: 32px;
     background-color: #063354;
-
 }
