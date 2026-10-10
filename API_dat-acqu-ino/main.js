@@ -12,18 +12,17 @@ const HABILITAR_OPERACAO_INSERIR = true;
 
 // função para comunicação serial
 const serial = async (
-    valoresSensorAnalogico
-    // valoresSensorDigital
+    valoresLM35
 ) => {
 
     // conexão com o banco de dados MySQL
     let poolBancoDados = mysql.createPool(
         {
             host: '127.0.0.1',
-            user: 'inserirDadosTemperatura',
-            password: 'inserirDadosTemperatura',
+            user: 'aluno',
+            password: 'Sptech#2024',
             database: 'MONITORAMENTO',
-            port: 3306
+            port: 3307
         }
     ).promise();
 
@@ -54,7 +53,7 @@ const serial = async (
         const temperatura = parseFloat(valores[0]);
 
         // armazena os valores dos sensores nos arrays correspondentes
-        valoresSensorAnalogico.push(temperatura);
+        valoresLM35.push(temperatura);
 
         // insere os dados no banco de dados (se habilitado)
         if (HABILITAR_OPERACAO_INSERIR) {
@@ -78,8 +77,7 @@ const serial = async (
 
 // função para criar e configurar o servidor web
 const servidor = (
-    valoresSensorAnalogico
-    // valoresSensorDigital
+    valoresLM35
 ) => {
     const app = express();
 
@@ -97,28 +95,22 @@ const servidor = (
 
     // define os endpoints da API para cada tipo de sensor
     app.get('/sensores/analogico', (_, response) => {
-        return response.json(valoresSensorAnalogico);
+        return response.json(valoresLM35);
     });
-    // app.get('/sensores/digital', (_, response) => {
-    //     return response.json(valoresSensorDigital);
-    // });
 }
 
 // função principal assíncrona para iniciar a comunicação serial e o servidor web
 (async () => {
     // arrays para armazenar os valores dos sensores
-    const valoresSensorAnalogico = [];
-    // const valoresSensorDigital = [];
+    const valoresLM35 = [];
 
     // inicia a comunicação serial
     await serial(
-        valoresSensorAnalogico,
-        // valoresSensorDigital
+        valoresLM35,
     );
 
     // inicia o servidor web
     servidor(
-        valoresSensorAnalogico,
-        //valoresSensorDigital
+        valoresLM35,
     );
 })();
