@@ -49,9 +49,17 @@
     let tentativas = 3
 
     function entrar() {
+        let senha_user = senha_ipt.value
         let senha = "Urubu100"
         let email = email_ipt.value
 
+        if (email.length == 0){
+            alert(`Insira um e-mail no campo E-MAIL`)
+        }
+        else if (senha_user.length == 0){
+            alert(`Insira uma senha no campo SENHA`)
+        }
+        else {
         //Validação para verificar se existem tentativas
         if (tentativas <= 0) {
         alert(`Acesso bloqueado permanentemente!`);
@@ -78,6 +86,7 @@
         login_efetuado.innerHTML = `Login efetuado com sucesso!`
         tentativas = 3}
         } 
+        }
     }
 
 
