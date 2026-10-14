@@ -1,0 +1,161 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Junge&family=Ledger&display=swap');
+
+body {
+  margin: 0px;
+  background-color: #FFFDF4;
+}
+
+.container {
+    display: flex;
+    min-height: 100vh;
+}
+
+.painel-esquerdo {
+    width: 42%;
+    box-sizing: border-box;
+    padding: 40px 80px;
+
+    background-image: url("fundo.png");
+    background-size: cover;
+    background-position: center;
+    color: white;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+}
+
+.logo{
+  position: absolute;
+  top: 0px;
+  left: 70px;
+}
+
+
+.painel-direito {
+width: 58%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.formulario {
+    width: 70%;
+    display: flex;
+    flex-direction: column;
+    margin: 0 auto;
+}
+
+.textos_painel_esquerdo{
+    width: 90%;
+}
+
+.p1_txt {
+    font-family: Ledger;
+    font-size: 20px;
+    margin: 0px;
+    color: #FFFDF4;
+}
+
+.p2_txt {
+    font-family: Junge;
+    font-size: 50px;
+    margin-top: 20px;
+    margin-bottom: 20px;
+    color: #FFFDF4;
+    font-weight: 200;
+}
+
+.p3_txt {
+    font-family: Inter;
+    font-size: 20px;
+    margin: 0px;
+    font-weight: 200;
+    color: #FFFDF4;
+}
+
+.campos {
+    font-family: Inter;
+    margin: 0px;
+    font-weight: 400;
+    color: #063354;
+    font-size: 20px;
+}
+
+.bem_vindo{
+    font-family: Junge;
+    font-size: 50px;
+    font-weight: 200;
+    color: #063354;
+
+}
+
+.botao_conta{
+    background-image: linear-gradient(to right, #063354, #00c3d0);
+    border: none;
+    color:#ffffff;
+    border-radius: 10px;
+    font-family: Inter;
+    font-size: 20px;
+    margin-top: 40px;
+    margin-bottom: 0px;
+}
+
+
+.botao_entrar{
+    background-color: #063354;
+    border: none;
+    color:#ffffff;
+    background-image: linear-gradient(to right, #8DB8C8, #46B3DA);
+    border-radius: 10px;
+    font-family: Inter;
+    font-size: 20px;
+}
+
+input  {
+    border-style: solid;
+    border-color: #8CC2D5;
+    width: 100%;
+    height: 40px;
+    border-radius: 5px;
+    margin-bottom: 15px;
+}
+
+.ou_txt{
+    color: #8197A7;
+    font-family: Inter;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button {
+    width: 100%;  
+    height: 50px;
+    cursor: pointer;
+}
+
+.campos-senha {
+    display: flex;
+    gap: 20px;       
+    width: 100%;
+}
+
+.campos-senha input{
+    width: 100%;
+}
+
+.campos-senha div{
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+}
+
+#cadastro_efetuado {
+    color: #03a526;
+    font-family: Inter;
+    font: 800;
+    text-decoration: underline;
+    font-size: 20px;
+}
