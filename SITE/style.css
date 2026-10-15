@@ -98,6 +98,11 @@ html {
     font-size: medium;
 }
 
+h1 {
+    font-family: Junge;
+    font-weight: lighter;
+}
+
 .box1 {
     display: flex;
     width: 100%;
@@ -252,17 +257,229 @@ html {
     display: block;
 }
 
+
 .box3 {
     width: 100%;
-    height: 594px;
-    background-color: rgb(7, 7, 226);
+    min-height: 594px;
+    background-color: #FFFDF4;
+    box-sizing: border-box;
+    padding: 38px 5.6% 22px;
+}
+
+.valores-cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-end;
+    gap: 40px;
+    margin-bottom: 22px;
+}
+
+.valores-titulo {
+    flex: 1;
+}
+
+.valores-label {
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    color: #496579;
+    text-transform: uppercase;
+    margin: 0 0 16px;
+}
+
+.valores-label::before {
+    content: "";
+    display: inline-block;
+    width: 25px;
+    height: 1px;
+    background-color: #D98268;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.valores-titulo h1 {
+    font-family: Georgia, serif;
+    font-size: 40px;
+    font-weight: normal;
+    line-height: 1.15;
+    color: #123F60;
+    margin: 0;
+}
+
+.valores-descricao {
+    flex: 1;
+    max-width: 390px;
+    font-family: Inter;
+    font-size: 11px;
+    line-height: 1.35;
+    color: #718078;
+    margin: 0 0 1px;
+}
+
+.cards-valores {
+    display: flex;
+    justify-content: center;
+    align-items: stretch;
+    gap: 10px;
+    width: 100%;
+}
+
+.valores-card-1,
+.valores-card-2,
+.valores-card-3 {
+    flex: 1;
+    width: 368.42px;
+    height: 341.87px;
+    box-sizing: border-box;
+    padding: 20px 18px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+}
+
+.valores-card-1 {
+    background: linear-gradient(135deg, #EFF6F2, #D9EBE8);
+}
+
+.valores-card-2 {
+    background: linear-gradient(135deg, #FFF0DE, #F0D6B9);
+}
+
+.valores-card-3 {
+    background: linear-gradient(135deg, #DDEBFA, #B7CADA);
+}
+
+.card-icone {
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 44px;
+    margin-bottom: 8px;
+}
+
+.valores-card-1 h2,
+.valores-card-2 h2,
+.valores-card-3 h2 {
+    font-family: Georgia, serif;
+    font-size: 25px;
+    font-weight: normal;
+    line-height: 1.15;
+    color: #123F60;
+    margin: 0 0 17px;
+    padding-top: 50px;
+}
+
+.valores-card-1 p,
+.valores-card-2 p,
+.valores-card-3 p {
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    line-height: 1.6;
+    color: #777F7A;
+    margin: 0;
 }
 
 .box4 {
+    position: relative;
+    isolation: isolate;
     width: 100%;
-    height: 602px;
-    background-color: rgb(26, 26, 40);
+    height: 650px;
+    background-color: #0A2E50;
 }
+
+.product-label {
+    font-family: Arial, sans-serif;
+    font-size: 10px;
+    color: #FFFFFF;
+    text-transform: uppercase;
+    padding-top: 50px;
+    margin-left: 110px;
+}
+
+.product-label::before {
+    content: "";
+    display: inline-block;
+    width: 25px;
+    height: 1px;
+    background-color: #D98268;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.box4::before {
+    content: "";
+    position: absolute;
+    inset: 0;
+    background-image: url(product-background.png);
+    background-size: cover;
+    opacity: 0.2;
+    z-index: -1;
+}
+
+.box4 h1,
+.prod-desc {
+    text-align: center;
+    color: #FFFFFF;
+}
+
+.box4 h1 {
+    font-size: 45px;
+    margin-top: 30px;
+}
+
+.prod-desc{
+    font-family: Inter;
+    font-weight: 300;
+    font-size: 15px;
+    width: 1000px;
+    margin-inline: auto;
+    margin-top: 20px;
+}
+
+.produto-cards{
+    display: flex;
+    gap: 80px;
+    justify-content: center;
+    margin-top: 50px;
+}
+
+.card-produto{
+    background: linear-gradient(135deg, #FFFFFF, #C1C1C1);
+    width: 220px;
+    height: 339px;
+    opacity: 0.7;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.product-icon {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-top: 50px;
+    margin-bottom: 50px;
+}
+
+.card-produto img{
+    width: 78px;
+    height: 78px;
+}
+
+.card-produto h3{
+    text-align: left;
+    font-family: Junge;
+    font-weight: lighter;
+    color: #063354;
+    margin-bottom: 10px;
+}
+
+.product-card-desc {
+    font-family: inter;
+    line-height: 20px;
+    font-size: 12px;
+    color: #063354;
+}
+
 
 .calculadora {
     width: 100%;
