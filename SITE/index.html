@@ -118,30 +118,85 @@
                 <div class="card-produto">
                     <div class="product-icon"><img src="product-money-icon.svg" alt=""></div>
                     <h3>Poder de marca</h3>
-                    <p class="product-card-desc">Garanta confiança e credibilidade para a sua marca investindo na qualidade do seu produto.
+                    <p class="product-card-desc">Garanta confiança e credibilidade para a sua marca investindo na
+                        qualidade do seu produto.
                     </p>
                 </div>
                 <div class="card-produto">
                     <div class="product-icon"><img src="product-location-icon.svg" alt=""></div>
                     <h3>Rastreabilidade</h3>
-                    <p class="product-card-desc">Tenha controle do seu transporte a partir de registros gerados por meios de dados coletados pelo nosso sensor.
+                    <p class="product-card-desc">Tenha controle do seu transporte a partir de registros gerados por
+                        meios de dados coletados pelo nosso sensor.
                     </p>
                 </div>
                 <div class="card-produto">
                     <div class="product-icon"><img src="product-shield-icon.svg" alt=""></div>
                     <h3>Conformidade Legislativa</h3>
-                    <p class="product-card-desc">Assegure a segurança  e qualidade do seu produto .
+                    <p class="product-card-desc">Assegure a segurança e qualidade do seu produto .
                     </p>
                 </div>
             </div>
         </div>
 
         <div class="calculadora">
+            <p class="simulador-label">Simulador Financeiro</p>
 
-            Quantas cargas você carrega por mês? <input id="ipt_cargas_mes"><br><br>
-            Quantos kg você carrega por carga? <input id="ipt_kg_carga"><br><br>
+            <div class="textosimulador">
+                <h1>Quanto custa deixar a temperatura <span class="texto-grifado">ao acaso?</span></h1>
+                <p> Para representar uma situação de perda rotineira, foi considerada uma perda de 5% da
+                    carga (esse percentual está sendo considerado pela variabilidade das perdas de pescado
+                    indicada pela FAO - Food and Agriculture Organization of the United Nations). </p>
+            </div>
 
-            <button onclick="calculadora_atum()">Cálculo Atum</button>
+            <div class="container">
+
+                <div class="quadro-azul">
+                    <p class="operacao-meses">Sua operação perde em 12 meses</p>
+
+                    <div id="mensagem_calculo">
+                        <p class="US">US$&nbsp</p>
+                    </div>
+
+                    <div id="peso_atum">
+                        <p>Quantos kg de atum você perde</p>
+                    </div>
+
+                    <div class="cargas-mes">
+                        <input id="ipt_cargas_mes">
+                        <p class="label-input">Quantas cargas você carrega por mês?</p>
+                    </div>
+                    <br>
+                    <div class="kg-carga">
+                        <input id="ipt_kg_carga">
+                        <p class="label-input">Quantos kg você carrega por carga?</p>
+                    </div>
+
+                    <button class="botao-calculo" onclick="calculadora_atum()">Calcular perda →</button>
+                </div>
+
+                <div class="quadro_branco">
+
+                    <div class="cargas_ano">
+                        <p>Cargas perdidas no ano</p>
+                        <p class="texto_laranja"><input id="ipt_cargas_perdidas" disabled>
+                            &nbsp=&nbsp <input id="ipt_cargas_ano" disabled>&nbsp→&nbsp<input id="ipt_qtd_kg" disabled>
+                        </p>
+                    </div>
+
+                    <div class="cargas_ano">
+                        <p>Perda de 5% ao mês</p>
+                        <p class="texto_laranja"><input id="ipt_kg" disabled>
+                            &nbspx&nbsp <input id="ipt_porcentagem" disabled>&nbspx&nbsp<input id="ipt_valor"
+                                disabled>&nbsp=&nbsp <input class="ipt_destaque" id="ipt_perda" disabled>
+                        </p>
+                    </div>
+
+                </div>
+
+            </div>
+
+
+            <p class="texto-fontes">Valores estimados com base em premissas (Easyfish, FAO e Britannia P&I).</p>
 
             <div id="div_mensagem"></div>
             <!-- Somente para utilização no script, pode ser apagado ou modificado no futuro -->
@@ -170,6 +225,7 @@
         let perda_extrema_kg = kg_carga * perda_extrema * viagens_extremas; // Kg perdidos nas duas viagens extremas (20% de cada carga)
         let perda_total_kg = perda_rotineira_kg + perda_extrema_kg; // Soma da perda rotineira com a perda extrema, em kg
         let prejuizo = perda_total_kg * valor_kg; // Valor total da perda em dólares
+        let perda_rotineira_calculada = perda_rotineira_kg * 100
 
         let perda_mes_kg = cargas_mes * kg_carga * perda_rotineira; // Kg perdidos em um mês (perda de 5%)
         let perda_mes_valor = perda_mes_kg * valor_kg; // Valor perdido em um mês, em dólares
@@ -185,20 +241,37 @@
                 mes++; // Avança para o próximo mês
             }
 
+            peso_atum.innerHTML = `${perda_total_kg.toFixed(2)} kg de atum`
+
+            mensagem_calculo.innerHTML = `US$ ${prejuizo.toFixed(2)}`
+
+            ipt_cargas_perdidas.value = `${cargas_mes} cargas x 12 meses`
+
+            ipt_cargas_ano.value = `${cargas_ano} cargas / ano`
+
+            ipt_qtd_kg.value = `${kg_total} kg de atum`
+
+            ipt_kg.value = `${perda_mes_kg.toFixed(2)}kg`
+
+            ipt_porcentagem.value = `5%`
+
+            ipt_valor.value = `US$ 8/kg`
+
+            ipt_perda.value = `US$${perda_mes_valor.toFixed(2)}`
+
+
+
+
+
+
             div_mensagem.innerHTML =
-                `Você transporta ${cargas_ano} cargas por ano (${kg_total.toFixed(2)} kg de atum).<br><br>
-
-            Por mês, a perda de ${perda_rotineira * 100}% é de ${perda_mes_kg.toFixed(2)} kg (US$ ${perda_mes_valor.toFixed(2)}), considerando US$ ${valor_kg}/kg.<br><br>
-
-            <b>Perda acumulada mês a mês:</b><br>
+                `<b>Perda acumulada mês a mês:</b><br>
             ${lista_acumulados}<br>
 
-            Se ocorrer um acidente, como já aconteceu (a Britannia P&I registra o descongelamento de 12 contêineres de atum, <br> com reclamação de cerca de US$ 500.000), a perda pode chegar a ${perda_extrema * 100}% da carga em ${viagens_extremas} viagens: mais ${perda_extrema_kg.toFixed(2)} kg.<br><br>
+            Se ocorrer um acidente, como já aconteceu (a Britannia P&I registra o descongelamento de 12 contêineres de atum, 
+            <br> com reclamação de cerca de US$ 500.000), a perda pode chegar a ${perda_extrema * 100}% da carga em ${viagens_extremas} 
+            viagens: mais ${perda_extrema_kg.toFixed(2)} kg.<br><br>`;
 
-            Perda total no ano: ${perda_total_kg.toFixed(2)} kg de atum.<br>
-            Prejuízo estimado: US$ ${prejuizo.toFixed(2)}.<br><br>
-
-            <i>Valores estimados com base em premissas (Easyfish, FAO e Britannia P&I).</i>`;
         } else {
             div_mensagem.innerHTML = 'Preencha valores válidos maiores que zero.';
         }

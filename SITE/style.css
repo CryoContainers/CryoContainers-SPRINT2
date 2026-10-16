@@ -483,9 +483,210 @@ h1 {
 
 .calculadora {
     width: 100%;
-    height: 602px;
-    background-color: rgb(248, 248, 248);
+    background-color: #FFFDF4;
+    padding: 50px;
+    box-sizing: border-box;
 }
+
+.simulador-label {
+    font-family: Arial, sans-serif;
+    font-size: 15px;
+    color: #5b6b70;
+    text-transform: uppercase;
+    margin-bottom: 30px;
+}
+
+.simulador-label::before {
+    content: "";
+    display: inline-block;
+    width: 25px;
+    height: 1px;
+    background-color: #D98268;
+    vertical-align: middle;
+    margin-right: 5px;
+}
+
+.texto-grifado {
+    color: #D98268;
+    font-style: italic;
+}
+
+.textosimulador {
+    display: flex;
+}
+
+.textosimulador p {
+    width: 500px;
+    font-family: inter;
+    color: #5b6b70;
+    font-size: 13px;
+    line-height: 20px;
+    margin-left: 300px;
+}
+
+.container {
+    display: flex;
+}
+
+.quadro-azul {
+    background-color: #063354;
+    padding: 30px;
+    width: 400px;
+    border-top-left-radius: 10px;
+    border-bottom-left-radius: 10px;
+    margin-top: 30px;
+    margin-bottom: 30px;
+}
+
+.texto-fontes {
+    font-family: inter;
+    font-style: italic;
+    color: #5b6b70;
+    font-size: 12px;
+}
+
+.operacao-meses {
+    font-size: 13px;
+    font-weight: bold;
+    font-family: junge;
+    color: #b9c2c7;
+
+}
+
+.US {
+    font-family: bookman;
+    font-size: 50px;
+    color: #fffdf4;
+}
+
+#peso_atum {
+    font-size: 12px;
+    font-family: junge;
+    font-weight: bold;
+    color: #7fa6ad;
+    margin-bottom: 130px;
+    display: flex;
+}
+
+.label-input {
+    font-size: 14px;
+    color: #7fa6ad;
+    margin-top: auto;
+}
+
+.cargas-mes,
+.kg-carga {
+    display: flex;
+}
+
+.kg-carga {
+    margin-bottom: 20px;
+}
+
+.quadro-azul input {
+    background-color: transparent;
+    border: none;
+    border-bottom: 2px solid #466b72;
+    width: 100px;
+    margin-right: 15px;
+    color: #FFFDF4;
+    font-size: 40px;
+    font-family: bookman;
+}
+
+.quadro-azul input:focus {
+    outline: none;
+    box-shadow: none;
+}
+
+.botao-calculo {
+    background-color: #de6843;
+    border: none;
+    border-radius: 20px;
+    color: #fffdf4;
+    height: 40px;
+    width: 150px;
+    margin-top: 10px;
+}
+
+#mensagem_calculo {
+    display: flex;
+    font-size: 50px;
+    color: #FFFDF4;
+
+}
+
+.quadro_branco {
+    width: 100%;
+    height: 466px;
+    background-color: #F2EEE5;
+    margin-top: 30px;
+    border-top-right-radius: 10px;
+    border-bottom-right-radius: 10px;
+    padding-left: 50px;
+    padding-top: 35px;
+    box-sizing: border-box;
+}
+
+.cargas_ano {
+    position: relative;
+    padding-bottom: 20px;
+    padding-top: 20px;
+}
+
+.cargas_ano p {
+    font-family: inter;
+    font-size: 15px;
+    color: #927e68;
+    text-transform: uppercase;
+    margin-bottom: 10px;
+    
+}
+
+.cargas_ano::after {
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 900px;
+    height: 1px;
+    background-color: #dbd8d1;
+    border-radius: 2px;
+}
+
+.cargas_ano::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 900px;
+    height: 1px;
+    background-color: #dbd8d1;
+    border-radius: 2px;
+}
+
+.cargas_ano input {
+    height: 25px;
+    border-radius: 5px;
+    border-color: #dbd8d1;
+    background-color: #FFFFFF;
+    box-shadow: none;
+    color: #0b283d;
+    font-family: inter;
+    text-align: center;
+}
+
+.cargas_ano .texto_laranja {
+    color: #de6843;
+}
+
+.cargas_ano .ipt_destaque {
+    background-color:#de6843;
+    color: white;
+    border-color: #de6843 ;
+}
+
+
 
 .box6 {
     width: 100%;
