@@ -54,7 +54,7 @@ CREATE TABLE sensor (
 CREATE TABLE leitura_sensor (
 	id_leitura_sensor INT PRIMARY KEY AUTO_INCREMENT,
     temperatura_sensor DECIMAL (6,2),
-    dt_hora DATETIME,
+    dt_hora DATETIME DEFAULT CURRENT_TIMESTAMP,
     fk_sensor INT,
     CONSTRAINT ckFK_sensor_leitura_sensor FOREIGN KEY (fk_sensor)
     REFERENCES sensor (id_sensor)
