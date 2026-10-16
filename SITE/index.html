@@ -157,23 +157,50 @@
 
     function calculadora_atum() {
         let cargas_mes = Number(ipt_cargas_mes.value); // Quantidade de cargas transportadas por mês
-        let kg_carga = Number(ipt_kg_carga.value); // Quantidade de kg de atum transportados em cada carga
+        let kg_carga = Number(ipt_kg_carga.value); // Quantidade de kg de atum em cada carga
+
+        let perda_rotineira = 0.05; // Percentual de perda normal (5%)
+        let perda_extrema = 0.20; // Percentual de perda nas viagens extremas (20%)
+        let viagens_extremas = 2; // Quantidade de viagens com perda extrema
+        let valor_kg = 8; // Valor de referência de cada kg de atum, em dólares
+
         let cargas_ano = cargas_mes * 12; // Quantidade de cargas transportadas durante o ano
-        let kg_total = cargas_ano * kg_carga; // Quantidade total de kg de atum transportados no ano
-        let percent_perda = kg_total * 0.05; // 5% de perda sobre o total transportado no ano
-        let perda_extrema = kg_carga * 0.20 * 2; // Perda de 20% em duas viagens extremas
-        let perda_total = percent_perda + perda_extrema; // Soma das perdas normais com as duas perdas extremas
-        let valor_kg = 8; // Valor de referência de cada kg de atum em dólares
-        let prejuizo = perda_total * valor_kg; // Valor total da perda em dólares
+        let kg_total = cargas_ano * kg_carga; // Total de kg de atum transportados no ano
+        let perda_rotineira_kg = kg_total * perda_rotineira; // Kg perdidos com a perda de 5% sobre o total do ano
+        let perda_extrema_kg = kg_carga * perda_extrema * viagens_extremas; // Kg perdidos nas duas viagens extremas (20% de cada carga)
+        let perda_total_kg = perda_rotineira_kg + perda_extrema_kg; // Soma da perda rotineira com a perda extrema, em kg
+        let prejuizo = perda_total_kg * valor_kg; // Valor total da perda em dólares
 
-        div_mensagem.innerHTML =
-            `Você transporta ${cargas_ano} cargas por ano.<br>
-            Isso representa ${kg_total.toFixed(2)} kg de atum transportados por ano.<br><br>
+        let perda_mes_kg = cargas_mes * kg_carga * perda_rotineira; // Kg perdidos em um mês (perda de 5%)
+        let perda_mes_valor = perda_mes_kg * valor_kg; // Valor perdido em um mês, em dólares
+        let acumulado = 0; // Valor total perdido até o mês atual, em dólares
+        let mes = 1; // Contador do mês (começa no mês 1)
+        let lista_acumulados = ''; // Texto com o acumulado de cada mês, montado dentro do while
 
-            Com uma perda de 5%, são perdidos ${percent_perda.toFixed(2)} kg por ano.<br>
-            Nas duas viagens extremas, são perdidos mais ${perda_extrema.toFixed(2)} kg.<br><br>
+        if (cargas_mes > 0 && kg_carga > 0) {
 
-            A perda total estimada é de ${perda_total.toFixed(2)} kg de atum.<br>
-            O prejuízo estimado é de US$ ${prejuizo.toFixed(2)}.`;
+            while (mes <= 12) {
+                acumulado += perda_mes_valor; // Soma a perda do mês ao acumulado
+                lista_acumulados += `Mês ${mes}: US$ ${acumulado.toFixed(2)}<br>`; // Adiciona o acumulado do mês na lista
+                mes++; // Avança para o próximo mês
+            }
+
+            div_mensagem.innerHTML =
+                `Você transporta ${cargas_ano} cargas por ano (${kg_total.toFixed(2)} kg de atum).<br><br>
+
+            Por mês, a perda de ${perda_rotineira * 100}% é de ${perda_mes_kg.toFixed(2)} kg (US$ ${perda_mes_valor.toFixed(2)}), considerando US$ ${valor_kg}/kg.<br><br>
+
+            <b>Perda acumulada mês a mês:</b><br>
+            ${lista_acumulados}<br>
+
+            Se ocorrer um acidente, como já aconteceu (a Britannia P&I registra o descongelamento de 12 contêineres de atum, <br> com reclamação de cerca de US$ 500.000), a perda pode chegar a ${perda_extrema * 100}% da carga em ${viagens_extremas} viagens: mais ${perda_extrema_kg.toFixed(2)} kg.<br><br>
+
+            Perda total no ano: ${perda_total_kg.toFixed(2)} kg de atum.<br>
+            Prejuízo estimado: US$ ${prejuizo.toFixed(2)}.<br><br>
+
+            <i>Valores estimados com base em premissas (Easyfish, FAO e Britannia P&I).</i>`;
+        } else {
+            div_mensagem.innerHTML = 'Preencha valores válidos maiores que zero.';
+        }
     }
 </script>
