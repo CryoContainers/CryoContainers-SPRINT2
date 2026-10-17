@@ -177,7 +177,7 @@
                 <div class="quadro_branco">
 
                     <div class="cargas_ano">
-                        <p>Quantas cargas você produz anualmente</p>
+                        <p>Quantas cargas você transporta anualmente</p>
                         <p class="texto_laranja"><input id="ipt_cargas_perdidas" disabled>
                             &nbsp=&nbsp <input id="ipt_cargas_ano" disabled>&nbsp→&nbsp<input id="ipt_qtd_kg" disabled>
                         </p>
@@ -209,8 +209,25 @@
             <!-- Somente para utilização no script, pode ser apagado ou modificado no futuro -->
 
         </div>
-        <div class="box6"></div>
-        <div class="footer"></div>
+        <div class="box6">
+            <p class="rodape-frase">Solução de monitoramento de temperaturas em contêineres refrigerados.</p>
+
+            <div class="rodape-links">
+                <a href="#box1">Início</a>
+                <a href="#box2">Sobre nós</a>
+                <a href="#box3">Valores</a>
+                <a href="#box4">Nosso produto</a>
+            </div>
+
+            <div class="rodape-direita">
+                <button class="botao-contato">✉ Fale conosco</button>
+                <img src="logo_cryocontainers (1).png" alt="CryoContainers" class="rodape-logo">
+            </div>
+        </div>
+
+        <div class="footer">
+            <p>Do mar ao destino, precisão que preserva a qualidade</p>
+        </div>
     </div>
 </body>
 
@@ -274,13 +291,8 @@
 
             ipt_perda.value = `US$${perda_mes_valor.toFixed(2)}`
 
-            div_mensagem.innerHTML =
-                `Se ocorrer um acidente, como já aconteceu (a Britannia P&I registra o descongelamento de 12 contêineres de atum, 
-            <br> com reclamação de cerca de US$ 500.000), a perda pode chegar a ${perda_extrema * 100}% da carga em ${viagens_extremas} 
-            viagens: mais ${perda_extrema_kg.toFixed(2)} kg.<br><br>`;
-
         } else {
-            div_mensagem.innerHTML = 'Preencha valores válidos maiores que zero.';
+            alert('Insira valores maiores que zero!')
         }
     }
 </script>
