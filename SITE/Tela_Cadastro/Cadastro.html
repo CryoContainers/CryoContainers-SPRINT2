@@ -1,0 +1,104 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <div class="container">
+        <div class="painel-esquerdo">
+            <div class="logo">
+                <img src="logo-branca.png" alt="Logo CRYO">
+            </div>
+            <div class="textos_painel_esquerdo">
+            <p class="p1_txt">Do mar ao destino</p>
+            <p class="p2_txt">Onde a temperatura certa nunca é um acaso</p>
+            <p class="p3_txt">Acesse o painel para acompanhar o monitoramento de temperatura de suas cargas em tempo
+                real.</p>
+            </div>
+        </div>
+
+        <div class="painel-direito">
+            <div class="formulario">
+                <p class="bem_vindo">Seja Bem-vindo</p>
+
+                <p class="campos">Nome completo</p>
+                <input type="text" id="nome_ipt"> <br>
+
+                <p class="campos">E-mail</p>
+                <input type="text" id="email_ipt"><br>
+
+                <div class="campos-senha">
+                    <div>
+                        <p class="campos" for="senha_ipt">Senha</p>
+                        <input type="password" id="senha_ipt">
+                    </div>
+
+                    <div>
+                        <p class="campos" for="confirmacao_ipt">Confirmar Senha</p>
+                        <input type="password" id="confirmacao_ipt">
+                    </div>
+                </div>
+                <div id="cadastro_efetuado"></div>
+                <button class="botao_conta" onclick="criar()">Criar conta</button>
+                <p class="ou_txt">Ou</p>
+                <button class="botao_entrar">Entrar</button>
+            </div>
+
+
+        </div>
+    </div>
+</body>
+</html>
+<script>
+    function criar(){
+        let nome = nome_ipt.value
+        let email = email_ipt.value
+        let senha = senha_ipt.value
+        let confirmacao_senha = confirmacao_ipt.value
+
+        let numero_validacao = (senha.includes ('0') || senha.includes('1') || senha.includes('2') || senha.includes('3') || senha.includes('4') || senha.includes('5') || senha.includes('6') || senha.includes('7') || senha.includes('8') || senha.includes('9'));
+        let simbolo_validacao = (senha.includes('?') || senha.includes('!') || senha.includes('@') || senha.includes('#') || senha.includes(':'));
+
+
+        //validação do campo NOME
+        if (nome.length == 0){
+            alert (`Preencha o campo NOME!`)
+        }
+        //Validações do campo E-MAIL
+        else if (email.length == 0){
+            alert (`Preencha o campo E-MAIL!`)
+        } else if (!email.includes("@")){
+            alert(`Seu E-MAIL precisa incluir "@"`)
+        }
+
+        //Validações do campo SENHA
+        else if (senha.length == 0){
+            alert (`Defina uma SENHA!`)
+        } else if (senha.length < 8 || senha == senha.toLowerCase() || senha == senha.toUpperCase() || !numero_validacao || !simbolo_validacao){ 
+            alert(`Sua senha deve incluir:
+                • 8 dígitos ou mais;
+                • Uma letra maiúscula;
+                • Uma letra minúscula;
+                • Um número;
+                • Um caractere especial (!, ?, @, #, :).`)
+        }
+
+        else if (confirmacao_senha.length == 0){
+            alert (`Digite novamente sua senha no campo CONFIRMAÇÃO!`)
+        } else if (senha != confirmacao_senha){
+            alert(`As senhas não estão correspondentes`)
+        }
+        else {
+            cadastro_efetuado.innerHTML = `Cadastro realizado com sucesso!`
+            nome_ipt.value = ''
+            email_ipt.value = ''
+            senha_ipt.value = ''
+            confirmacao_ipt.value = ''
+        }
+    }
+</script>
