@@ -16,9 +16,8 @@
             </div>
             <div class="textos_painel_esquerdo">
             <p class="p1_txt">Do mar ao destino</p>
-            <p class="p2_txt">Onde a temperatura certa nunca é um acaso</p>
-            <p class="p3_txt">Acesse o painel para acompanhar o monitoramento de temperatura de suas cargas em tempo
-                real.</p>
+            <p class="p2_txt">Defina o limite. Nós cuidamos do resto</p>
+            <p class="p3_txt">Informe as temperaturas ideais e críticas e acompanhe cada alerta em tempo real.</p>
             </div>
         </div>
 
@@ -27,32 +26,32 @@
                 <p class="titulo_infos">Insira as informações referentes à carga</p>
 
                 <p class="campos">Numeração do container</p>
-                <input type="text" id="cargaTipo_ipt"> <br>
+                <input placeholder="ex: 1" type="number" id="numeroContainer_ipt"> <br>
 
-                <p class="campos">Peso total da carga</p>
-                <input type="text" id="cargaTotal_ipt"> <br>
+                <p class="campos">Peso total da carga em kgs</p>
+                <input placeholder="ex: 12" type="number" id="cargaTotal_ipt"> <br>
 
                 <p class="campos">Valor por kg da carga</p>
-                <input type="text" id="valorKg_ipt"><br>
+                <input placeholder="ex: 9.50" type="number" id="valorKg_ipt"><br>
 
-                <div class="campos-senha">
+                <div class="campos-temp">
                     <div>
-                        <p class="campos" for="senha_ipt">Temperatura ideal mínima</p>
-                        <input type="password" id="tempMin_ipt">
+                        <p class="campos" for="tempMin_ipt">Temperatura ideal mínima</p>
+                        <input placeholder="ex: -1.5" type="Number" id="tempMin_ipt">
                     </div>
 
                     <div>
-                        <p class="campos" for="confirmacao_ipt">Temperatura ideal máxima</p>
-                        <input type="password" id="tempMax_ipt">
+                        <p class="campos" for="tempMax_ipt">Temperatura ideal máxima</p>
+                        <input placeholder="ex: 1.5" type="Number" id="tempMax_ipt">
                     </div>
 
                     <div>
-                        <p class="campos" for="confirmacao_ipt">Temperatura crítica</p>
-                        <input type="password" id="tempCritica_ipt">
+                        <p class="campos" for="tempCrit_ipt">Temperatura crítica</p>
+                        <input placeholder="ex: 5.0" type="Number" id="tempCrit_ipt">
                     </div>
                 </div>
                 <div id="cadastro_efetuado"></div>
-                <button class="botao_entrar">Cadastrar Container</button>
+                <button class="botaoCadastrar" onclick="cadastrar()">Cadastrar Container</button>
             </div>
 
 
@@ -61,50 +60,71 @@
 </body>
 </html>
 <script>
-    function criar(){
-        let nome = nome_ipt.value
-        let email = email_ipt.value
-        let senha = senha_ipt.value
-        let confirmacao_senha = confirmacao_ipt.value
+    function cadastrar(){
+        let numeroContainer = Number(numeroContainer_ipt.value)
+        let cargaTexto = cargaTotal_ipt.value
+        let cargaTotal = Number(cargaTexto)
+        let valorKg = Number(valorKg_ipt.value)
+        let tempMinTex = tempMin_ipt.value
+        let tempMinNum = Number(tempMin_ipt.value)
+        let tempMaxTex = tempMax_ipt.value
+        let tempMaxNum = Number(tempMax_ipt.value)
+        let tempCritTex = tempCrit_ipt.value
+        let tempCritNum = Number(tempCrit_ipt.value)
 
-        let numero_validacao = (senha.includes ('0') || senha.includes('1') || senha.includes('2') || senha.includes('3') || senha.includes('4') || senha.includes('5') || senha.includes('6') || senha.includes('7') || senha.includes('8') || senha.includes('9'));
-        let simbolo_validacao = (senha.includes('?') || senha.includes('!') || senha.includes('@') || senha.includes('#') || senha.includes(':'));
-
-
-        //validação do campo NOME
-        if (nome.length == 0){
-            alert (`Preencha o campo NOME!`)
+        // validação do campo numeroContainer
+        if (numeroContainer == 0){
+            alert (`Identifique a qual container pertence esta carga!`)
+            numeroContainer_ipt.value = '';
+            numeroContainer_ipt.focus();
+        } else if (numeroContainer < 0) {
+            alert (`Não é possível identificação com número negativo`)
+            numeroContainer_ipt.value = '';
+            numeroContainer_ipt.focus();
         }
-        //Validações do campo E-MAIL
-        else if (email.length == 0){
-            alert (`Preencha o campo E-MAIL!`)
-        } else if (!email.includes("@")){
-            alert(`Seu E-MAIL precisa incluir "@"`)
+        // Validações do campo carga total
+        else if (cargaTexto === ''){
+            alert (`Informe o peso da carga!`)
+            cargaTotal_ipt.focus();
+        } else if (cargaTotal == 0) {
+            alert(`Não é possível cadastrar com peso nulo!`)
+            cargaTotal_ipt.value = '';
+            cargaTotal_ipt.focus();
+        } else if (cargaTotal < 0){
+            alert(`Não é possível cadastrar com peso negativo!`)
+            cargaTotal_ipt.value = '';
+            cargaTotal_ipt.focus();
         }
 
-        //Validações do campo SENHA
-        else if (senha.length == 0){
-            alert (`Defina uma SENHA!`)
-        } else if (senha.length < 8 || senha == senha.toLowerCase() || senha == senha.toUpperCase() || !numero_validacao || !simbolo_validacao){ 
-            alert(`Sua senha deve incluir:
-                • 8 dígitos ou mais;
-                • Uma letra maiúscula;
-                • Uma letra minúscula;
-                • Um número;
-                • Um caractere especial (!, ?, @, #, :).`)
+        // Validações do campo Valor por kg da carga
+        else if (valorKg == 0){
+            alert (`Não é possível cadastrar carga sem valor por quilograma!`)
+            valorKg_ipt.value = '';
+            valorKg_ipt.focus();
+        } else if (valorKg < 0){ 
+            alert(`Não é possível cadastrar carga com valor negativo por quilograma!`)
+            valorKg_ipt.value = '';
+            valorKg_ipt.focus();
         }
 
-        else if (confirmacao_senha.length == 0){
-            alert (`Digite novamente sua senha no campo CONFIRMAÇÃO!`)
-        } else if (senha != confirmacao_senha){
-            alert(`As senhas não estão correspondentes`)
-        }
-        else {
-            cadastro_efetuado.innerHTML = `Cadastro realizado com sucesso!`
-            nome_ipt.value = ''
-            email_ipt.value = ''
-            senha_ipt.value = ''
-            confirmacao_ipt.value = ''
+        // Validações dos campos de temperatura
+        else if (tempMinTex === ''){
+            alert(`Informe a temperatura mínima!`)
+            tempMin_ipt.focus()
+        } else if (tempMaxTex === ''){
+            alert(`Informe a temperatura máxima!`)
+            tempMax_ipt.focus()
+        } else if (tempCritTex === ''){
+            alert(`Informe a temperatura crítica!`)
+            tempCrit_ipt.focus()
+        } else if ((tempMinNum > tempMaxNum)) {
+            alert('Não é possível que a temperatura mínima seja maior que a temperatura máxima!')
+            tempMin_ipt.value = '';
+            tempMin_ipt.focus();
+        } else if ((tempMaxNum > tempCritNum)) {
+            alert('Temperatura máxima deve ser menor ou igual à temperatura crítica!')
+            tempMax_ipt.value = '';
+            tempMax_ipt.focus();
         }
     }
 </script>

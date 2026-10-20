@@ -91,19 +91,7 @@ width: 54%;
 
 }
 
-.botao_conta{
-    background-image: linear-gradient(to right, #063354, #00c3d0);
-    border: none;
-    color:#ffffff;
-    border-radius: 10px;
-    font-family: Inter;
-    font-size: 20px;
-    margin-top: 40px;
-    margin-bottom: 0px;
-}
-
-
-.botao_entrar{
+.botaoCadastrar{
     background-color: #063354;
     border: none;
     color:#ffffff;
@@ -136,17 +124,17 @@ button {
     cursor: pointer;
 }
 
-.campos-senha {
+.campos-temp     {
     display: flex;
     gap: 20px;       
     width: 100%;
 }
 
-.campos-senha input{
+.campos-temp input{
     width: 100%;
 }
 
-.campos-senha div{
+.campos-temp div{
     flex: 1;
     display: flex;
     flex-direction: column;
