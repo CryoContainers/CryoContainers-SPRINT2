@@ -1,0 +1,350 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Junge&family=Kapakana:wght@300..400&display=swap');
+
+* {
+    margin: 0px;
+}
+
+body {
+    background-color: #1E4662;
+}
+
+.boxPai {
+    display: grid;
+    grid-template-columns: 2;
+}
+
+h1 {
+    font-family: Junge;
+    color: #FFFFFF;
+}
+
+.menu_sup {
+    display: flex;
+    background-color: #063354;
+    padding: 20px;
+    justify-content: center;
+    margin-bottom: 30px;
+}
+
+.botoes_menu {
+    display: flex;
+    gap: 40px;
+    margin: auto;
+}
+
+.botoes_menu .botoes,
+.perfil-operador {
+    color: #FFFFFF;
+    font-family: Inter;
+    font-size: 13px;
+    text-decoration: none;
+}
+
+.perfil-operador {
+    display: flex;
+    justify-content: end;
+}
+
+.area-dash {
+    display: flex;
+    width: 98vw;
+    height: 98vh;
+}
+
+.painel-notificacoes {
+    background-color: #FFFFFF;
+    height: fit-content;
+    padding: 30px;
+    border-radius: 10px;
+    width: 100vw;
+    height: 100vh;
+}
+
+.titulo-linha {
+    display: flex;
+    font-family: Inter;
+    align-items: center;
+}
+
+.titulo-linha h2 {
+    color: #063354;
+}
+
+.etiqueta_nova {
+    background-color: #dc573a;
+    color: #FFFFFF;
+    padding: 5px;
+    padding-left: 18px;
+    padding-right: 18px;
+    border-radius: 15px;
+    margin-left: auto;
+}
+
+.filtros-linha {
+    font-family: Inter;
+    display: flex;
+    gap: 40px;
+    margin-top: 20px;
+}
+
+.filtros-linha .link-ver-todas {
+    color: #063354;
+    font-weight: bold;
+}
+
+.filtros-linha a {
+    color: #8197A7;
+    text-decoration: none;
+}
+
+.lista-alertas {
+    margin-top: 10px ;
+}
+
+.card-alerta-alerta-perigo, .card-alerta-alerta-sucesso {
+    padding: 20px;
+    border-radius: 10px;
+    margin-bottom: 10px;
+}
+
+
+.card-alerta-alerta-perigo {
+    background-color: #FFDED7;
+}
+
+.card-alerta-alerta-sucesso {
+    background-color: #c6e8bd;
+}
+
+.card-alerta-alerta-perigo b {
+    color: #dc573a;
+    font-family: Inter;
+}
+
+.card-alerta-alerta-sucesso b {
+    color: #20A200;
+    font-size: 14px;
+    font-family: Inter;
+}
+
+.card-alerta-alerta-perigo, .card-alerta-alerta-sucesso p {
+    font-family: inter;
+    font-size: 13px;
+    color: #5F6E79;
+}
+
+
+
+.area-containers {
+    margin: 30px;
+    width: fit-content;
+}
+
+.cards-resumo {
+    display: flex;
+    gap: 30px;
+    width: fit-content;
+    margin-top: 20px;
+}
+
+.card-kpi-kpi-total {
+    background: linear-gradient(180deg, #376AA1, #204A76);
+    width: 250px;
+    height: 100px;
+    border-radius: 10px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.card-kpi-kpi-total p {
+    text-transform: uppercase;
+    font-family: Inter;
+    color: #8CC2D5;
+}
+
+.card-kpi-kpi-total span {
+    font-family: Junge;
+    font-size: 40px;
+    color: #FFFFFF;
+}
+
+.card-kpi-kpi-normais {
+    background-color: #DDF7DD;
+    width: 250px;
+    height: 100px;
+    border-radius: 10px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.card-kpi-kpi-normais p {
+    text-transform: uppercase;
+    font-family: Inter;
+    color: #177200;
+}
+
+.card-kpi-kpi-normais span {
+    font-family: Junge;
+    font-size: 40px;
+    color: #177200;
+}
+
+.card-kpi-kpi-alerta {
+    background-color: #D76F58;
+    width: 250px;
+    height: 100px;
+    border-radius: 10px;
+    padding: 20px;
+    box-sizing: border-box;
+}
+
+.card-kpi-kpi-alerta p {
+    text-transform: uppercase;
+    font-family: Inter;
+    color: #FFC9AC;
+}
+
+.card-kpi-kpi-alerta span {
+    font-family: Junge;
+    font-size: 40px;
+    color: #FFC9AC;
+}
+
+.area-filtro {
+    margin-top: 30px;
+    display: flex;
+    margin-bottom: 30px;
+}
+
+.botoes-filtro {
+    display: flex;
+    gap: 10px;
+}
+
+.btn-filtro-ativo {
+    border-radius: 20px;
+    padding: 7px;
+    width: 60px;
+    background-color: #063354;
+    border: none;
+    font-family: Inter;
+    color: #FFFFFF;
+}
+
+.btn-filtro {
+    border-radius: 20px;
+    padding: 7px;
+    width: auto;
+    background-color: #FFFFFF;
+    border: none;
+    font-family: Inter;
+    color: #8197A7;
+    transition: background-color 0.3s ease;
+}
+
+.btn-filtro:hover {
+    background-color: #063354;
+    color: #FFFFFF;
+}
+
+.busca-container input {
+    border-radius: 20px;
+    padding: 7px;
+    width: auto;
+    background-color: #FFFFFF;
+    border: none;
+    font-family: Inter;
+    color: #8197A7;
+    margin-left: 390px;
+}
+
+.grid-conteineres {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    width: fit-content;
+    grid-gap: 10px;
+}
+
+.card-cabecalho {
+    display: flex;
+}
+
+.card-conteiner-card-alerta {
+    background-color: #FFFFFF;
+    box-sizing: border-box;
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+    height: 145px;
+    border: solid #D76F58 3px
+}
+
+.card-conteiner-card-normal {
+    background-color: #FFFFFF;
+    box-sizing: border-box;
+    padding: 20px;
+    border-radius: 10px;
+    width: 400px;
+    height: 145px;
+    border: solid #177200 3px
+}
+
+.card-conteiner-card-alerta, .card-conteiner-card-normal h3 {
+    font-family: Inter;
+    color: #063354;
+}
+
+.tag-status-status-laranja {
+    font-family: Inter;
+    background-color: #E9A27C;
+    border-radius: 20px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #dc573a;
+    margin-left: auto;
+}
+
+.tag-status-status-verde {
+    font-family: Inter;
+    background-color: #c6e8bd;
+    border-radius: 20px;
+    width: 100px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #177200;
+    margin-left: auto;
+}
+
+.card-temperatura-temp-alerta {
+    font-family: Junge;
+    font-size: 40px;
+    align-items: center;
+    color: #D76F58;
+    margin-top: 5px;
+    border-bottom: solid #b6c9d6 1px;
+}
+
+.card-temperatura {
+    font-family: Junge;
+    font-size: 40px;
+    align-items: center;
+    color: #177200;
+    margin-top: 5px;
+    border-bottom: solid #b6c9d6 1px;
+}
+
+.card-rodape {
+    display: flex;
+    font-family: Inter;
+    font-size: 13px;
+    color: #8197A7;
+    margin-top: 10px;
+}
+
+.text-left-card {
+    margin-left: 30px;
+    padding-left: 30px;
+}
