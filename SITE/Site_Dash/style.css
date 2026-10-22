@@ -1,0 +1,234 @@
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: inter;
+}
+
+body {
+    display: flex;
+    flex-direction: column;
+    background-color: #1E4662;
+    height: 100vh;
+    height: 100dvh;
+}
+
+/* Header */
+header {
+    display: flex;
+    grid: 1;
+    flex-shrink: 0;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 25px;
+    background-color: #063354;
+    color: white;
+}
+
+#logo {
+    height: 60px;
+    padding: 7px;
+}
+
+.menu {
+    display: flex;
+    gap: 100px;
+}
+
+/* Área principal: ocupa apenas o espaço restante */
+
+/* Painel esquerdo */
+.boxPai1 {
+    display: grid;
+    grid-template-rows: 67px auto minmax(0, 1fr);
+    height: 100vh;
+    width: 100%;
+    gap: 20px;
+    background-color: #1E4662;
+}
+
+.box2 {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    gap: 20px;
+    padding: 0 20px 20px 20px;
+    min-height: 0;
+}
+/* KPIs */
+
+.kpi {
+    display: flex;
+    height: fit-content;
+    grid-row: 2;
+    flex-direction: row;
+    gap: 15px;
+    padding: 20px;
+}
+.kpiCentro {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    flex: 1;
+    min-width: 0;
+    height: 140px;
+    background: linear-gradient(90deg, #063354, #002540);
+    color: white;
+    border-radius: 10px;
+}
+
+.kpiCentro img {
+    position: absolute;
+    grid-column: 1;
+    grid-row: 2;
+    height: 95px;
+    margin-left: 40px;
+}
+
+.kpiCentro p {
+    margin-left: 180px;
+    height: 5px;
+}
+
+.kpiCentro h2 {
+    font-size: 40px;
+    margin-left: 180px;
+    margin-top: 20px;
+    margin-bottom: 7px;
+}
+
+.kpiEsquerda {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    flex: 1;
+    min-width: 0;
+    height: 140px;
+    background: linear-gradient(90deg, #063354, #002540);
+    color: white;
+    border-radius: 10px;
+}
+
+.kpiEsquerda p {
+    margin-left: 180px;
+    height: 5px;
+}
+
+.kpiEsquerda h2 {
+    font-size: 40px;
+    margin-left: 180px;
+    margin-top: 20px;
+    margin-bottom: 7px;
+    color: red;
+}
+
+.kpiEsquerda img {
+    position: absolute;
+    grid-column: 1;
+    grid-row: 2;
+    height: 93px;
+    margin-left: 40px;
+}
+
+.kpiDireita {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: start;
+    flex: 1;
+    min-width: 0;
+    height: 140px;
+    background: linear-gradient(90deg, #063354, #002540);
+    color: white;
+    border-radius: 10px;
+}
+
+.kpiDireita p {
+    margin-left: 190px;
+    height: 5px;
+}
+
+.kpiDireita h2 {
+    font-size: 40px;
+    margin-left: 190px;
+    margin-top: 20px;
+    margin-bottom: 7px;
+    color: red;
+}
+
+.kpiDireita img {
+    position: absolute;
+    grid-column: 1;
+    grid-row: 2;
+    height: 100px;
+    margin-left: 40px;
+}
+
+.boxGraficos {
+    display: flex;
+    min-width: 0;
+    min-height: 0;
+}
+
+.grafico1 {
+    display: flex;
+    flex-direction: column;
+    width: 100%;
+    background-color: white;
+    border-radius: 15px;
+    padding: 20px;
+    min-height: 0;
+}
+
+.grafico1 h2 {
+    margin-bottom: 12px;
+}
+
+.areaGrafico {
+    position: relative;
+    flex: 1;
+    min-height: 0;
+}
+
+.boxHistorico {
+    display: flex;
+    min-width: 0;
+    min-height: 0;
+}
+
+.historico {
+    width: 100%;
+    height: 100%;
+    background-color: white;
+    border-radius: 15px;
+    overflow: hidden;
+}
+
+.historico h2 {
+    padding: 15px 30px;
+    font-family: inter;
+}
+.cabecalho {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 20px;
+    height: 30px;
+    background-color: gray;
+    margin: 0;
+    color: white;
+}
+
+.linhaHistorico {
+    display: flex;
+    justify-content: space-between;
+    padding: 10px 20px;
+    border-bottom: solid gray 1px;
+}
+
+.atencao {
+    color: #D76F58;
+}
+

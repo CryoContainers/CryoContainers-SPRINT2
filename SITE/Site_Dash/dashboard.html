@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-annotation"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link
+        href="https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Junge&family=Kapakana:wght@300..400&display=swap"
+        rel="stylesheet">
+    <link rel="stylesheet" href="style.css">
+    <title>Dashboard</title>
+</head>
+
+<body>
+
+    <div class="avo">
+        <div class="boxPai1">
+
+            <header>
+                <img src="logo_200x80_transparente.png" id="logo">
+                <div class="menu">
+                    <p>Dashboard</p>
+                    <p>Containers</p>
+                    <p>Suporte</p>
+                </div>
+                <p>Olá, Operador</p>
+            </header>
+
+            <div class="kpi">
+                <div class="kpiEsquerda">
+                    <img src="termometro_quente.png" alt="">
+                    <p>TEMPERATURA ATUAL</p>
+                    <h2>1°C</h2>
+                    <p style="color: red;">Acima do limite! (-1)</p>
+                </div>
+                <div class="kpiCentro">
+                    <img src="relogio.png">
+                    <p>TEMPO FORA DO LIMITE</p>
+                    <h2>4:45:13</h2>
+                    <p>Acumulado na viagem</p>
+                </div>
+                <div class="kpiDireita">
+                    <img src="graficoSubindo.png" alt="">
+                    <p>MAIOR DESVIO TÉRMICO</p>
+                    <h2>+ 4,8 °C</h2>
+                    <p>Acima do limite</p>
+                </div>
+            </div>
+            <div class="box2">
+                <div class="boxGraficos">
+                    <div class="grafico1">
+                        <h2>Temperatura Interna do conteiner (ºC)</h2>
+                        <div class="areaGrafico"><canvas id="grafico1"></canvas></div>
+                    </div>
+                </div>
+
+                <div class="boxHistorico">
+                    <div class="historico">
+                        <h2>Histórico de Registros</h2>
+                        <div class="cabecalho">
+                            <p>DATA</p>
+                            <p>HORÁRIO</p>
+                            <p>TEMPERATURA</p>
+                            <p>STATUS</p>
+                        </div>
+                        <div class="linhaHistorico">
+                            <p>Hoje</p>
+                            <p>11:15</p>
+                            <p>-11 ºC</p>
+                            <p>Normal</p>
+                        </div>
+                        <div class="linhaHistorico">
+                            <p>Hoje</p>
+                            <p>11:10</p>
+                            <p>-3 ºC</p>
+                            <p class="atencao">Atenção</p>
+                        </div>
+                        <div class="linhaHistorico">
+                            <p>Hoje</p>
+                            <p>11:05</p>
+                            <p>-5 ºC</p>
+                            <p class="atencao">Atenção</p>
+                        </div>
+                        <div class="linhaHistorico">
+                            <p>Hoje</p>
+                            <p>11:00</p>
+                            <p>-10 ºC</p>
+                            <p>Normal</p>
+                        </div>
+                        <div class="linhaHistorico">
+                            <p>Hoje</p>
+                            <p>10:55</p>
+                            <p>-3 ºC</p>
+                            <p class="atencao">Atenção</p>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+
+        </div>
+
+
+    </div>
+
+</body>
+
+<script>
+    const labels = ['08h', '12h', '16h', '18h', '22h', '02h', '06h'];
+
+    const data = {
+        labels: labels,
+        datasets: [{
+            label: 'Temperatura Interna (°C)',
+            borderColor: '#063354',
+            backgroundColor: '#063354',
+            borderWidth: 2,
+            data: [-20, -19, -15, -5, 2, 5, 1]
+        }]
+    };
+
+    const config = {
+        type: 'line',
+        data: data,
+        options: {
+            responsive: true,
+            maintainAspectRatio: false,
+            scales: {
+                y: {
+                    min: -25,
+                    max: 10
+                },
+                x: {
+                    grid: {
+                        display: false
+                    }
+                }
+            },
+            plugins: {
+                annotation: {
+                    annotations: {
+                        // Área azul: dentro do limite (seguro)
+                        zonaSegura: {
+                            type: 'box',
+                            yMin: -25,
+                            yMax: -18,
+                            backgroundColor: '#2EC4D633',
+                            borderWidth: 0,
+                            drawTime: 'beforeDatasetsDraw',
+                            label: {
+                                display: true,
+                                content: 'Dentro do limite (seguro)',
+                                position: { x: 'end', y: 'end' },
+                                color: '#0B6E7A',
+                                font: { size: 13, weight: 'bold' }
+                            }
+                        },
+                        // Área vermelha: acima do limite (risco)
+                        zonaRisco: {
+                            type: 'box',
+                            yMin: -18,
+                            yMax: 4,
+                            backgroundColor: '#D76F5833',
+                            borderWidth: 0,
+                            drawTime: 'beforeDatasetsDraw',
+                            label: {
+                                display: true,
+                                content: 'Acima do limite (risco)',
+                                position: { x: 'start', y: 'center' },
+                                color: '#A8432F',
+                                font: { size: 13, weight: 'bold' }
+                            }
+                        },
+                        // Área vermelha escura: risco de histamina
+                        zonaMuitoRisco: {
+                            type: 'box',
+                            yMin: 4,
+                            yMax: 10,
+                            backgroundColor: '#D76F5866',
+                            borderWidth: 0,
+                            drawTime: 'beforeDatasetsDraw',
+                            label: {
+                                display: true,
+                                content: 'Risco de histamina',
+                                position: { x: 'start', y: 'center' },
+                                color: '#7A2E20',
+                                font: { size: 13, weight: 'bold' }
+                            }
+                        },
+                        // Linha de histamina (mantida)
+                        linhaCritica: {
+                            type: 'line',
+                            yMin: 4,
+                            yMax: 4,
+                            borderColor: '#e74c3c',
+                            borderWidth: 2,
+                            label: {
+                                display: true,
+                                content: 'Risco de Histamina (+4°C)',
+                                position: 'end',
+                                backgroundColor: '#e74c3c',
+                                color: 'white'
+                            }
+                        }
+                    }
+                }
+            }
+        }
+    };
+
+    const chart_temperatura = new Chart(
+        document.getElementById('grafico1'),
+        config
+    );
+</script>
+
+</html>
