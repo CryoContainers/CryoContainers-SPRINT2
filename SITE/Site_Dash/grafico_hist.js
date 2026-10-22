@@ -1,4 +1,4 @@
-const labels = ['08h', '12h', '16h', '18h', '22h', '02h', '06h'];
+const labels = ['08:05h', '08:10h', '08:15h', '8:20h', '08:25h', '08:30h', '08:35h'];
 
 const data = {
     labels: labels,
@@ -18,6 +18,10 @@ const data = {
                 responsive: true, 
                 scales: {
                     y: {
+                        title: {
+                            display: true,
+                            text: '(temperatura)'
+                        },
                         min: -25,
                         max: 10
                     },
