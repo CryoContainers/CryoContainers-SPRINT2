@@ -97,6 +97,21 @@ html {
     font-family: Inter, Arial, Helvetica;
     font-size: medium;
 }
+.botaoLogin {
+    display: flex;
+    position: end;
+    color: white;
+    background: linear-gradient(90deg, #9bbdd6, #359595);
+    border: solid 0px;
+    border-radius: 5px;
+    height: 30px;
+    width: 150px;
+    align-items: center;
+    justify-content: center;
+    font-family: Inter, Arial, Helvetica;
+    font-size: medium;
+    margin-left: 10px;
+}
 
 h1 {
     font-family: Junge;
