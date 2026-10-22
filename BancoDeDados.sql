@@ -1,6 +1,7 @@
 CREATE DATABASE MONITORAMENTO;
 USE MONITORAMENTO;
 
+
 CREATE TABLE empresa (
     id_empresa INT AUTO_INCREMENT PRIMARY KEY,
     codigo_ativacao VARCHAR(50),
@@ -72,7 +73,7 @@ CREATE TABLE alerta (
 
 CREATE USER 'inserirDadosTemperatura'@'%' IDENTIFIED BY 'inserirDadosTemperatura';
 
-GRANT INSERT, SELECT ON MONITORAMENTO.sensor TO 'inserirDadosTemperatura'@'%';
+GRANT INSERT, SELECT ON MONITORAMENTO.leitura_sensor TO 'inserirDadosTemperatura'@'%';
 
 
 
