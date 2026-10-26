@@ -63,6 +63,7 @@ html {
     justify-content: center;
     align-items: center;
     gap: 100px;
+    margin-right: 10px;
 }
 
 .botoes {
@@ -75,7 +76,6 @@ html {
 }
 
 .areaCadastro {
-    position: absolute;
     right: 40px;
     top: 0;
     bottom: 0;
@@ -85,7 +85,6 @@ html {
 
 .botaoCadastro {
     display: flex;
-    position: end;
     color: white;
     background: linear-gradient(90deg, #063354, #008080);
     border: solid 0px;
