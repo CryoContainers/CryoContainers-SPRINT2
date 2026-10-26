@@ -1,74 +1,82 @@
 CREATE DATABASE MONITORAMENTO;
 USE MONITORAMENTO;
 
-
 CREATE TABLE empresa (
-    id_empresa INT AUTO_INCREMENT PRIMARY KEY,
+    id INT AUTO_INCREMENT PRIMARY KEY,
     codigo_ativacao VARCHAR(50),
     razao_social VARCHAR(50) NOT NULL,
     cnpj CHAR(14) NOT NULL UNIQUE
 );
 
 CREATE TABLE cliente (
-    id_cadastro INT AUTO_INCREMENT PRIMARY KEY,
-    nome_cadastro VARCHAR(45) NOT NULL,
-    telefone VARCHAR(20) NULL UNIQUE,
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    nome VARCHAR(45) NOT NULL,
     email VARCHAR(255) NOT NULL,
     cpf CHAR(11) NOT NULL UNIQUE,
+    telefone VARCHAR(20) NULL UNIQUE,
     senha VARCHAR(200) NOT NULL,
     administrador TINYINT(1) DEFAULT 0,
     fk_empresa INT NULL,
     CONSTRAINT ckAdmin CHECK (administrador IN(0,1)),
     CONSTRAINT ckFk_empresa_cadastro FOREIGN KEY (fk_empresa)
-    REFERENCES empresa (id_empresa)
+    REFERENCES empresa (id)
 );
 
 CREATE TABLE conteiner (
-    id_conteiner INT PRIMARY KEY AUTO_INCREMENT,
+    id INT PRIMARY KEY AUTO_INCREMENT,
     codigo_identificacao VARCHAR(10) UNIQUE NOT NULL,
     fk_empresa INT NOT NULL,
     CONSTRAINT ckFk_empresa_conteiner FOREIGN KEY (fk_empresa) 
-    REFERENCES empresa (id_empresa)
+    REFERENCES empresa (id)
 );
 
 CREATE TABLE carga (
-	id_carga INT PRIMARY KEY AUTO_INCREMENT,
+	id INT PRIMARY KEY AUTO_INCREMENT,
     peso_total DECIMAL(10,2),
+    valor_kg DECIMAL(10,2),
     temp_ideal_min DECIMAL(5,2),
     temp_ideal_max DECIMAL(5,2),
     temp_critica DECIMAL(5,2),
     fk_conteiner INT,
     CONSTRAINT chFk_conteiner_carga FOREIGN KEY (fk_conteiner)
-    REFERENCES conteiner (id_conteiner)
+    REFERENCES conteiner (id)
 );
 
 CREATE TABLE sensor (
-    id_sensor INT PRIMARY KEY AUTO_INCREMENT,
+    id INT PRIMARY KEY AUTO_INCREMENT,
 	tipo VARCHAR(10),
     fk_conteiner INT,
     CONSTRAINT ckFK_conteiner_sensor FOREIGN KEY (fk_conteiner)
-    REFERENCES conteiner (id_conteiner)
+    REFERENCES conteiner (id)
 );
 
 CREATE TABLE leitura_sensor (
-	id_leitura_sensor INT PRIMARY KEY AUTO_INCREMENT,
+	id INT PRIMARY KEY AUTO_INCREMENT,
     temperatura_sensor DECIMAL (6,2),
     dt_hora DATETIME DEFAULT CURRENT_TIMESTAMP,
     fk_sensor INT,
     CONSTRAINT ckFK_sensor_leitura_sensor FOREIGN KEY (fk_sensor)
-    REFERENCES sensor (id_sensor)
+    REFERENCES sensor (id)
 );
 
+CREATE TABLE tipo_alerta (
+   id INT PRIMARY KEY AUTO_INCREMENT,
+   nome_alerta VARCHAR(45),
+   descricao VARCHAR(100)
+);
+
+
 CREATE TABLE alerta (
-	id_alerta INT PRIMARY KEY AUTO_INCREMENT,
-    tipo VARCHAR(45),
-    descricao VARCHAR(100),
+	id INT PRIMARY KEY AUTO_INCREMENT,
     dt_hora DATETIME DEFAULT CURRENT_TIMESTAMP,
     status_visto TINYINT,
 	CONSTRAINT chkstatus CHECK (status_visto IN(0, 1)),
     fk_leitura INT,
+    fk_tipo_alerta INT,
+	CONSTRAINT ckFK_tipo_alerta FOREIGN KEY (fk_tipo_alerta)
+    REFERENCES tipo_alerta(id),
     CONSTRAINT ckFK_leitura_alerta FOREIGN KEY (fk_leitura)
-    REFERENCES leitura_sensor (id_leitura_sensor)  
+    REFERENCES leitura_sensor (id)  
 );
 
 CREATE USER 'inserirDadosTemperatura'@'%' IDENTIFIED BY 'inserirDadosTemperatura';
