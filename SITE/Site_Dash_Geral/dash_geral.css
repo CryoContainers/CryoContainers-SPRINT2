@@ -268,6 +268,10 @@ h1 {
     grid-gap: 10px;
 }
 
+.grid-conteineres a {
+    text-decoration: none;
+}
+
 .card-cabecalho {
     display: flex;
 }
@@ -351,3 +355,4 @@ h1 {
     margin-left: 30px;
     padding-left: 30px;
 }
+
