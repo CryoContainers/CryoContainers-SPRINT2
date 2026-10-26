@@ -104,13 +104,17 @@ width: 58%;
 .botao_entrar{
     background-color: #063354;
     border: none;
-    color:#ffffff;
     background-image: linear-gradient(to right, #8DB8C8, #46B3DA);
     border-radius: 10px;
     font-family: Inter;
     font-size: 20px;
     margin-top: 40px;
     margin-bottom: 0px;
+}
+
+.botao_entrar a {
+    text-decoration: none;
+    color: #ffffff;
 }
 
 input  {
