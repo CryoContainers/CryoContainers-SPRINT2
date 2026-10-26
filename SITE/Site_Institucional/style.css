@@ -52,7 +52,7 @@ html {
     height: 69px;
     background-color: #FFFDF4;
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     align-items: center;
     position: relative;
     border-bottom: solid #D8D8D8 1px;
