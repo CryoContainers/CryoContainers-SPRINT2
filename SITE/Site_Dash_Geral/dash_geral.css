@@ -19,12 +19,30 @@ h1 {
     color: #FFFFFF;
 }
 
-.menu_sup {
+header {
     display: flex;
+    grid: 1;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 25px;
     background-color: #063354;
-    padding: 20px;
-    justify-content: center;
-    margin-bottom: 30px;
+    color: white;
+}
+
+#logo {
+    height: 60px;
+    padding: 7px;
+}
+
+.menu {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+}
+
+.menu a {
+    text-decoration: none;
+    color: white;
 }
 
 .botoes_menu {
@@ -46,21 +64,60 @@ h1 {
     justify-content: end;
 }
 
+.titulo-containers {
+    display: flex;
+    align-items: center;
+    gap: 30px;
+    margin-bottom: 20px;
+}
+
+.titulo-containers a {
+    text-decoration: none;
+}
+.titulo-container h1 {
+    margin: 0;
+    font-family: Junge;
+    color: #FFFFFF;
+}
+
+.botao-adicionar {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 12px 24px;
+    background-color: #063354;
+    color: #FFFFFF;
+    border: none;
+    border-radius: 12px;
+    font-family: Inter, sans-serif;
+    font-size: 16px;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.icone-mais {
+    font-size: 28px;
+    font-weight: bold;
+    line-height: 1;
+}
+
 .area-dash {
     display: flex;
-    width: 98vw;
+    width: 100%;
     margin-top: 5px;
     height: fit-content;
 }
 
 .painel-notificacoes {
     background-color: #FFFFFF;
-    height: fit-content;
     padding: 30px;
     margin-top: 88px;
+    margin-right: 25px;
     border-radius: 10px;
     width: 400px;
-    height: 57.5vh;
+    height: 60vh;
+    flex-shrink: 0;
 }
 
 .titulo-linha {
@@ -140,19 +197,19 @@ h1 {
 
 .area-containers {
     margin: 30px;
-    width: fit-content;
+    flex: 1;
+    min-width: 0;
 }
 
 .cards-resumo {
-    display: flex;
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
     gap: 30px;
-    width: fit-content;
     margin-top: 20px;
 }
 
 .card-kpi-kpi-total {
     background: linear-gradient(180deg, #376AA1, #204A76);
-    width: 250px;
     height: 100px;
     border-radius: 10px;
     padding: 20px;
@@ -173,7 +230,6 @@ h1 {
 
 .card-kpi-kpi-normais {
     background-color: #DDF7DD;
-    width: 250px;
     height: 100px;
     border-radius: 10px;
     padding: 20px;
@@ -194,7 +250,6 @@ h1 {
 
 .card-kpi-kpi-alerta {
     background-color: #D76F58;
-    width: 250px;
     height: 100px;
     border-radius: 10px;
     padding: 20px;
@@ -216,6 +271,7 @@ h1 {
 .area-filtro {
     margin-top: 30px;
     display: flex;
+    justify-content: space-between;
     margin-bottom: 30px;
 }
 
@@ -258,14 +314,12 @@ h1 {
     border: none;
     font-family: Inter;
     color: #8197A7;
-    margin-left: 390px;
 }
 
 .grid-conteineres {
     display: grid;
-    grid-template-columns: 1fr 1fr;
-    width: fit-content;
-    grid-gap: 10px;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
 }
 
 .grid-conteineres a {
@@ -281,9 +335,8 @@ h1 {
     box-sizing: border-box;
     padding: 20px;
     border-radius: 10px;
-    width: 400px;
     height: 145px;
-    border: solid #D76F58 3px
+    border: solid #D76F58 3px;
 }
 
 .card-conteiner-card-normal {
@@ -291,9 +344,8 @@ h1 {
     box-sizing: border-box;
     padding: 20px;
     border-radius: 10px;
-    width: 400px;
     height: 145px;
-    border: solid #177200 3px
+    border: solid #177200 3px;
 }
 
 .card-conteiner-card-alerta, .card-conteiner-card-normal h3 {

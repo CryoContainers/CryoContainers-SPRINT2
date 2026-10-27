@@ -36,18 +36,29 @@ header {
     gap: 100px;
 }
 
+.menu a {
+    text-decoration: none;
+    color: white;
+}
+
 /* Área principal: ocupa apenas o espaço restante */
 
 /* Painel esquerdo */
 .boxPai1 {
     display: grid;
-    grid-template-rows: 67px auto minmax(0, 1fr);
+    grid-template-rows: 67px 26px auto minmax(0, 1fr);
     height: 100vh;
     width: 100%;
     gap: 20px;
     background-color: #1E4662;
 }
 
+.titulo-container {
+    grid-row: 2;
+    color: white;
+    margin-left: 25px;
+    margin-top: 3px;
+}
 .box2 {
     display: grid;
     grid-template-columns: 2fr 1fr;
@@ -60,7 +71,7 @@ header {
 .kpi {
     display: flex;
     height: fit-content;
-    grid-row: 2;
+    grid-row: 3;
     flex-direction: row;
     gap: 15px;
     padding: 20px;

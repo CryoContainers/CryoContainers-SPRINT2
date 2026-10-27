@@ -11,13 +11,16 @@
 <body>
     <div class="container">
         <div class="painel-esquerdo">
-            <div class="logo">
-                <img src="logo-branca.png" alt="Logo CRYO">
-            </div>
+            <a href="../Site_Dash_Geral/dashboard_geral.html">
+                <div class="logo">
+                    <img src="logo-branca.png" alt="Logo CRYO">
+                </div>
+            </a>
+
             <div class="textos_painel_esquerdo">
-            <p class="p1_txt">Do mar ao destino</p>
-            <p class="p2_txt">Defina o limite. Nós cuidamos do resto</p>
-            <p class="p3_txt">Informe as temperaturas ideais e críticas e acompanhe cada alerta em tempo real.</p>
+                <p class="p1_txt">Do mar ao destino</p>
+                <p class="p2_txt">Defina o limite. Nós cuidamos do resto</p>
+                <p class="p3_txt">Informe as temperaturas ideais e críticas e acompanhe cada alerta em tempo real.</p>
             </div>
         </div>
 
@@ -46,21 +49,25 @@
                     </div>
 
                     <div>
-                        <p class="campos" for="tempCrit_ipt">Temperatura crítica</p>
+                        <p class="campos" for="tempCrit_ipt">Temperatura crítica <br></p>
                         <input placeholder="ex: 5.0" type="Number" id="tempCrit_ipt">
                     </div>
                 </div>
                 <div id="cadastro_efetuado"></div>
-                <button class="botaoCadastrar" onclick="cadastrar()">Cadastrar Container</button>
+                <a href="../Site_Dash_Geral/dashboard_geral.html">
+                    <button class="botaoCadastrar" onclick="cadastrar()">Cadastrar Container</button>
+                </a>
+
             </div>
 
 
         </div>
     </div>
 </body>
+
 </html>
 <script>
-    function cadastrar(){
+    function cadastrar() {
         let numeroContainer = Number(numeroContainer_ipt.value)
         let cargaTexto = cargaTotal_ipt.value
         let cargaTotal = Number(cargaTexto)
@@ -73,48 +80,48 @@
         let tempCritNum = Number(tempCrit_ipt.value)
 
         // validação do campo numeroContainer
-        if (numeroContainer == 0){
-            alert (`Identifique a qual container pertence esta carga!`)
+        if (numeroContainer == 0) {
+            alert(`Identifique a qual container pertence esta carga!`)
             numeroContainer_ipt.value = '';
             numeroContainer_ipt.focus();
         } else if (numeroContainer < 0) {
-            alert (`Não é possível identificação com número negativo`)
+            alert(`Não é possível identificação com número negativo`)
             numeroContainer_ipt.value = '';
             numeroContainer_ipt.focus();
         }
         // Validações do campo carga total
-        else if (cargaTexto === ''){
-            alert (`Informe o peso da carga!`)
+        else if (cargaTexto === '') {
+            alert(`Informe o peso da carga!`)
             cargaTotal_ipt.focus();
         } else if (cargaTotal == 0) {
             alert(`Não é possível cadastrar com peso nulo!`)
             cargaTotal_ipt.value = '';
             cargaTotal_ipt.focus();
-        } else if (cargaTotal < 0){
+        } else if (cargaTotal < 0) {
             alert(`Não é possível cadastrar com peso negativo!`)
             cargaTotal_ipt.value = '';
             cargaTotal_ipt.focus();
         }
 
         // Validações do campo Valor por kg da carga
-        else if (valorKg == 0){
-            alert (`Não é possível cadastrar carga sem valor por quilograma!`)
+        else if (valorKg == 0) {
+            alert(`Não é possível cadastrar carga sem valor por quilograma!`)
             valorKg_ipt.value = '';
             valorKg_ipt.focus();
-        } else if (valorKg < 0){ 
+        } else if (valorKg < 0) {
             alert(`Não é possível cadastrar carga com valor negativo por quilograma!`)
             valorKg_ipt.value = '';
             valorKg_ipt.focus();
         }
 
         // Validações dos campos de temperatura
-        else if (tempMinTex === ''){
+        else if (tempMinTex === '') {
             alert(`Informe a temperatura mínima!`)
             tempMin_ipt.focus()
-        } else if (tempMaxTex === ''){
+        } else if (tempMaxTex === '') {
             alert(`Informe a temperatura máxima!`)
             tempMax_ipt.focus()
-        } else if (tempCritTex === ''){
+        } else if (tempCritTex === '') {
             alert(`Informe a temperatura crítica!`)
             tempCrit_ipt.focus()
         } else if ((tempMinNum > tempMaxNum)) {
