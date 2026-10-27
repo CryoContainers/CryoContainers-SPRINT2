@@ -48,49 +48,55 @@
 </body>
 
 </html>
+
 <script>
-    let tentativas = 3
 
-    function entrar() {
-        let senha_user = senha_ipt.value
-        let senha = "Urubu100"
-        let email = email_ipt.value
+let tentativas = 3
 
-        if (email.length == 0){
-            alert(`Insira um e-mail no campo E-MAIL`)
-        }
-        else if (senha_user.length == 0){
-            alert(`Insira uma senha no campo SENHA`)
+function entrar() {
+    let senha_user = senha_ipt.value
+    let senha = "Urubu100"
+    let email = email_ipt.value
+
+    // Validação de bloqueio do usuário
+    if (tentativas <= 0) {
+        alert(`Acesso bloqueado!`)
+        login_negado.innerHTML = `Login bloqueado!`
+    }
+
+    // Validação do campo E-MAIL vazio
+    else if (email.length == 0) {
+        alert(`Insira um e-mail no campo E-MAIL!`)
+    }
+
+    // Validação do formato do E-MAIL
+    else if (!email.includes("@")) {
+        alert(`Seu E-MAIL precisa conter "@"!`)
+    }
+
+    // Validação do campo SENHA vazio
+    else if (senha_user.length == 0) {
+        alert(`Insira uma senha no campo SENHA!`)
+    }
+
+    // Validação de SENHA incorreta
+    else if (senha_user != senha) {
+        tentativas--
+
+        if (tentativas == 0) {
+            alert(`Acesso bloqueado! Você esgotou suas tentativas.`)
+            login_negado.innerHTML = `Login bloqueado!`
         }
         else {
-        //Validação para verificar se existem tentativas
-        if (tentativas <= 0) {
-        alert(`Acesso bloqueado permanentemente!`);
-        login_negado.innerHTML = `Login bloqueado!`;}
-        else {
-
-        //Validação para verificar se o email possui @
-        if (!email.includes("@")) {
-            alert(`Seu E-MAIL precisa ter "@"`)
-        }
-        //Validação para caso a senha esteja incorreta e possua tentativas
-        else if (tentativas >= 1 && senha != senha_ipt.value) {
-            tentativas--
-
-            if (tentativas == 0) {
-                alert(`Acesso Bloqueado!`) 
-                login_negado.innerHTML = `Login bloqueado!`
-            } else {
-                alert(`Senha incorreta! Restam ${tentativas} tentativas`)
-            }
-        }
-        //Validação para caso a senha esteja correta e possua tentativas 
-        else if (senha == senha_ipt.value){
-        login_efetuado.innerHTML = `Login efetuado com sucesso!`
-        tentativas = 3}
-        } 
+            alert(`Senha incorreta! Restam ${tentativas} tentativas.`)
         }
     }
 
+    // Validação de SENHA correta
+    else if (senha_user == senha) {
+        login_efetuado.innerHTML = `Login efetuado com sucesso!`
+        tentativas = 3
+    }
+}
 
 </script>

@@ -43,7 +43,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
-    padding: 30px 0;
+    padding: 15px 0;
 }
 
 .formulario {
@@ -91,23 +91,22 @@ body {
 
 .bem_vindo {
     font-family: Junge;
-    font-size: 50px;
+    font-size: 42px;
     font-weight: 200;
     color: #063354;
-    margin: 0 0 20px 0;
+    margin: 0 0 15px 0;
 }
 
 input {
     display: block;
     width: 100%;
-    height: 40px;
+    height: 35px;
     padding: 5px;
     border: 1px solid #8CC2D5;
     border-radius: 5px;
-    margin-bottom: 15px;
     font-family: Inter;
     font-size: 14px;
-    margin-bottom: auto;
+    margin-bottom: 8px;
 }
 
 .botao_conta {
@@ -117,7 +116,7 @@ input {
     border-radius: 10px;
     font-family: Inter;
     font-size: 20px;
-    margin-top: 25px;
+    margin-top: 15px;
     margin-bottom: 0px;
 }
 
@@ -148,7 +147,7 @@ button {
     display: flex;
     align-items: center;
     justify-content: center;
-    margin: 15px 0;
+    margin: 8px 0;
 }
 
 .campos-senha {
