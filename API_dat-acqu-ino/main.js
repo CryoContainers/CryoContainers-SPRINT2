@@ -50,7 +50,17 @@ const serial = async (
     arduino.pipe(new serialport.ReadlineParser({ delimiter: '\r\n' })).on('data', async (data) => {
         console.log(data);
         const valores = data.split(';');
-        const temperatura = parseFloat(valores[0]);
+        let temperatura = parseFloat(valores[0]);
+
+        if (temperatura < 22) {
+            temperatura = temperatura - 25;
+        } else if (temperatura < 29) {
+            temperatura = temperatura - 32;
+        } else if (temperatura < 32) {
+            temperatura = temperatura - 38;
+        } else {
+            temperatura = temperatura - 40;
+        }
 
         // armazena os valores dos sensores nos arrays correspondentes
         valoresLM35.push(temperatura);
