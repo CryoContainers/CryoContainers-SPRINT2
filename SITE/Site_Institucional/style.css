@@ -586,7 +586,7 @@ h1 {
     font-family: junge;
     font-weight: bold;
     color: #7fa6ad;
-    margin-bottom: 130px;
+    margin-bottom: 65px;
     display: flex;
 }
 
@@ -597,11 +597,13 @@ h1 {
 }
 
 .cargas-mes,
-.kg-carga {
+.kg-carga,
+.valor-kg {
     display: flex;
+    align-items: center;
 }
 
-.kg-carga {
+.valor-kg {
     margin-bottom: 20px;
 }
 
