@@ -396,15 +396,9 @@ header {
 }
 
 .card-rodape {
-    display: flex;
     font-family: Inter;
-    font-size: 13px;
+    font-size: 11px;
     color: #8197A7;
     margin-top: 10px;
-    gap: 25px;
-}
-
-.text-left-card {
-    margin-left: 10px;
 }
 

@@ -76,6 +76,11 @@ header {
     gap: 15px;
     padding: 20px;
 }
+
+.kpi h2 {
+    font-family: Junge;
+}
+
 .kpiCentro {
     display: flex;
     flex-direction: column;
