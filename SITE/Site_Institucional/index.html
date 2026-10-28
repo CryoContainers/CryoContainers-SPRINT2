@@ -1,5 +1,6 @@
+
 <!DOCTYPE html>
-<html lang="en">
+<html lang="pt-br">
 
 <head>
     <meta charset="UTF-8">
@@ -20,7 +21,7 @@
                 <a href="#box2" class="botoes">Sobre nós</a>
                 <a href="#box3" class="botoes">Valores</a>
                 <a href="#box4" class="botoes">Nosso produto</a>
-                <a href="#box5" class="botoes">Suporte</a>
+                <a href="../Tela_Cadastro/Cadastro.html" class="botoes">Contrate nosso serviço</a>
             </div>
 
             <div class="areaCadastro">
@@ -34,13 +35,13 @@
                     <p>MONITORAMENTO DE TEMPERATURA EM</p>
                 </div>
                 <div class="titulo junge tamanhoTitulo">
-                    <p>Containers Refrigerados<br>em cargas de <spam class="kapakana corAtum">atum</spam>
+                    <p>Containers Refrigerados<br>em cargas de <span class="kapakana corAtum">atum</span>
                     </p>
                 </div>
                 <div class="subtitulo1 interLight">
                     <p>Para proteger a qualidade em cada etapa <br>do
                         transporte<br><br><br><br><br><br><br><br><br><br><br>
-                        <spam class="interLight">TEMPERATURA SOB <br>CONTROLE, QUALIDADE PRESERVADA<spam>
+                        <span class="interLight">TEMPERATURA SOB <br>CONTROLE, QUALIDADE PRESERVADA</span>
                     </p>
                 </div>
             </div>
@@ -165,12 +166,12 @@
 
                     <div class="cargas-mes">
                         <input id="ipt_cargas_mes">
-                        <p class="label-input">Quantas cargas você carrega por mês?</p>
+                        <p class="label-input">Quantos contêineres você carrega por mês?</p>
                     </div>
-                    <br>
+
                     <div class="kg-carga">
                         <input id="ipt_kg_carga">
-                        <p class="label-input">Quantos kg você carrega por carga?</p>
+                        <p class="label-input">Quantos kg você carrega por contêiner?</p>
                     </div>
 
                     <div class="valor-kg">
@@ -183,35 +184,55 @@
 
                 <div class="quadro_branco">
 
-                    <div class="cargas_ano">
-                        <p>Quantas cargas você transporta anualmente</p>
-                        <p class="texto_laranja"><input id="ipt_cargas_perdidas" disabled>
-                            &nbsp=&nbsp <input id="ipt_cargas_ano" disabled>&nbsp→&nbsp<input id="ipt_qtd_kg" disabled>
-                        </p>
+                    <div id="resultado_calculadora">
+
+                        <div class="cargas_ano">
+                            <p>Quantos contêineres você transporta anualmente</p>
+                            <p class="texto_laranja"><input id="ipt_cargas_perdidas" disabled>
+                                &nbsp=&nbsp <input id="ipt_cargas_ano" disabled>&nbsp→&nbsp<input id="ipt_qtd_kg"
+                                    disabled>
+                            </p>
+                        </div>
+
+                        <div class="cargas_ano">
+                            <p>Perda de 5% ao mês</p>
+                            <p class="texto_laranja"><input id="ipt_kg" disabled>
+                                &nbspx&nbsp <input id="ipt_porcentagem" disabled>&nbspx&nbsp<input id="ipt_valor"
+                                    disabled>&nbsp=&nbsp <input class="ipt_destaque" id="ipt_perda" disabled>
+                            </p>
+                        </div>
+
+                        <div class="cargas_ano">
+                            <p>Perda acumulada nos 12 meses (R$)</p>
+                            <div class="meses" id="div_meses"></div>
+                        </div>
+
                     </div>
-
-                    <div class="cargas_ano">
-                        <p>Perda de 5% ao mês</p>
-                        <p class="texto_laranja"><input id="ipt_kg" disabled>
-                            &nbspx&nbsp <input id="ipt_porcentagem" disabled>&nbspx&nbsp<input id="ipt_valor"
-                                disabled>&nbsp=&nbsp <input class="ipt_destaque" id="ipt_perda" disabled>
-                        </p>
-                    </div>
-
-                    <div class="cargas_ano">
-                        <p>Perda acumulada nos 12 meses (R$)</p>
-                        <div class="meses" id="div_meses"></div>
-                    </div>
-
-
 
                 </div>
 
             </div>
 
-
             <div id="div_mensagem"></div>
             <!-- Somente para utilização no script, pode ser apagado ou modificado no futuro -->
+
+            <div class="chamada-cliente">
+                <h2>
+                    Você já conhece o custo das <span class="texto-grifado">perdas.</span>
+                    Agora conheça uma forma de <span class="texto-grifado">monitorá-las.</span>
+                </h2>
+
+                <p>
+                    Com a CryoContainers, você acompanha as temperaturas
+                    das suas cargas em tempo real, identifica alterações
+                    e toma decisões antes que pequenos desvios se
+                    tornem grandes prejuízos.
+                </p>
+
+                <a href="../Tela_Cadastro/Cadastro.html">
+                    <button>Contrate nosso serviço →</button>
+                </a>
+            </div>
 
         </div>
         <div class="box6">
@@ -234,99 +255,114 @@
             <p>Do mar ao destino, precisão que preserva a qualidade</p>
         </div>
     </div>
-</body>
 
-</html>
-<script>
-    function botaoCadastro() {
+    <script>
+        function botaoCadastro() {
 
-    }
-
-    function calculadora_atum() {
-
-        let cargas_mes = Number(ipt_cargas_mes.value) // Quantidade de cargas transportadas por mês
-        let kg_carga = Number(ipt_kg_carga.value) // Quantidade de kg de atum em cada carga
-        let valor_kg = Number(ipt_valor_kg.value) // Valor comercial de cada kg de atum em reais
-
-        let perda_rotineira = 0.05 // Percentual de perda estimada de 5%
-
-        let cargas_ano = cargas_mes * 12 // Quantidade de cargas transportadas durante o ano
-        let kg_total = cargas_ano * kg_carga // Total de kg transportados no ano
-        let kg_mes_total = cargas_mes * kg_carga // Total de kg transportados em um mês
-
-        let perda_rotineira_kg = kg_total * perda_rotineira // Quantidade de kg perdidos durante o ano
-        let prejuizo = perda_rotineira_kg * valor_kg // Prejuízo financeiro anual em reais
-
-        let perda_mes_kg = kg_mes_total * perda_rotineira // Quantidade de kg perdidos por mês
-        let perda_mes_valor = perda_mes_kg * valor_kg // Prejuízo financeiro mensal em reais
-
-        let acumulado = 0 // Valor acumulado das perdas
-        let mes = 1 // Contador dos meses
-        let blocos_meses = '' // Armazena os blocos HTML dos 12 meses
-
-        // Validações do campo CARGAS POR MÊS
-        if (ipt_cargas_mes.value == '') {
-            alert(`Informe a quantidade de cargas transportadas por mês!`)
-        }
-        else if (cargas_mes <= 0) {
-            alert(`A quantidade de cargas deve ser maior que zero!`)
-        }
-        else if (cargas_mes % 1 != 0) {
-            alert(`A quantidade de cargas deve ser um número inteiro!`)
         }
 
-        // Validações do campo KG POR CARGA
-        else if (ipt_kg_carga.value == '') {
-            alert(`Informe quantos kg de atum são transportados por carga!`)
-        }
-        else if (kg_carga <= 0) {
-            alert(`O peso da carga deve ser maior que zero!`)
-        }
-        else if (kg_carga % 1 != 0) {
-            alert(`O peso da carga deve ser um número inteiro!`)
-        }
+        function calculadora_atum() {
 
-        // Validações do campo VALOR COMERCIAL
-        else if (ipt_valor_kg.value == '') {
-            alert(`Informe o valor comercial de cada kg de atum!`)
-        }
-        else if (valor_kg <= 0) {
-            alert(`O valor comercial por kg deve ser maior que zero!`)
-        } else {
+            let cargas_mes = Number(ipt_cargas_mes.value) // Quantidade de cargas transportadas por mês
+            let kg_carga = Number(ipt_kg_carga.value) // Quantidade de kg em cada carga
+            let valor_kg = Number(ipt_valor_kg.value) // Valor comercial de cada kg em reais
 
-            while (mes <= 12) {
+            let perda_rotineira = 0.05 // Percentual estimado de perda de 5%
 
-                acumulado += perda_mes_valor // Adiciona o prejuízo mensal ao acumulado
+            let cargas_ano = cargas_mes * 12 // Quantidade de cargas transportadas durante o ano
+            let kg_total = cargas_ano * kg_carga // Total de kg transportados no ano
+            let kg_mes_total = cargas_mes * kg_carga // Total de kg transportados no mês
 
-                blocos_meses += `
-                <div class="mes">
-                    <small>Mês ${mes}</small>
-                    <strong>R$ ${acumulado.toFixed(2)}</strong>
-                </div>`
+            let perda_rotineira_kg = kg_total * perda_rotineira // Quantidade de kg perdidos no ano
+            let prejuizo = perda_rotineira_kg * valor_kg // Prejuízo financeiro anual em reais
 
-                mes++ // Avança para o próximo mês
+            let perda_mes_kg = kg_mes_total * perda_rotineira // Quantidade de kg perdidos no mês
+            let perda_mes_valor = perda_mes_kg * valor_kg // Prejuízo financeiro mensal em reais
+
+            let acumulado = 0 // Valor acumulado das perdas
+            let mes = 1 // Contador dos meses
+            let blocos_meses = '' // Armazena os blocos HTML dos 12 meses
+
+            resultado_calculadora.style.visibility = 'hidden' // Esconde os resultados anteriores
+
+            // Validações do campo CARGAS POR MÊS
+            if (ipt_cargas_mes.value == '') {
+                alert(`Informe a quantidade de cargas transportadas por mês!`)
+            }
+            else if (isNaN(cargas_mes)) {
+                alert(`A quantidade de cargas deve conter apenas números!`)
+            }
+            else if (cargas_mes <= 0) {
+                alert(`A quantidade de cargas deve ser maior que zero!`)
+            }
+            else if (cargas_mes % 1 != 0) {
+                alert(`A quantidade de cargas deve ser um número inteiro!`)
             }
 
-            div_meses.innerHTML = blocos_meses // Exibe os 12 meses
+            // Validações do campo KG POR CARGA
+            else if (ipt_kg_carga.value == '') {
+                alert(`Informe quantos kg de atum são transportados por carga!`)
+            }
+            else if (isNaN(kg_carga)) {
+                alert(`O peso da carga deve conter apenas números!`)
+            }
+            else if (kg_carga <= 0) {
+                alert(`O peso da carga deve ser maior que zero!`)
+            }
+            else if (kg_carga % 1 != 0) {
+                alert(`O peso da carga deve ser um número inteiro!`)
+            }
 
-            peso_atum.innerHTML = `${perda_rotineira_kg.toFixed(2)} kg de atum` // Exibe a perda anual em kg
+            // Validações do campo VALOR COMERCIAL
+            else if (ipt_valor_kg.value == '') {
+                alert(`Informe o valor comercial de cada kg de atum!`)
+            }
+            else if (isNaN(valor_kg)) {
+                alert(`O valor comercial deve conter apenas números!`)
+            }
+            else if (valor_kg <= 0) {
+                alert(`O valor comercial por kg deve ser maior que zero!`)
+            }
 
-            mensagem_calculo.innerHTML = `R$ ${prejuizo.toFixed(2)}` // Exibe o prejuízo anual
+            // Caso todas as validações estejam corretas
+            else {
 
-            ipt_cargas_perdidas.value = `${cargas_mes} cargas x 12` // Demonstra o cálculo de cargas anuais
+                while (mes <= 12) {
 
-            ipt_cargas_ano.value = `${cargas_ano} cargas por ano` // Exibe a quantidade anual de cargas
+                    acumulado += perda_mes_valor // Adiciona o prejuízo mensal ao acumulado
 
-            ipt_qtd_kg.value = `${kg_total} kg de atum` // Exibe o peso anual transportado
+                    blocos_meses += `
+                    <div class="mes">
+                        <small>Mês ${mes}</small>
+                        <strong>${acumulado.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}</strong>
+                    </div>` // Cria o bloco HTML de cada mês
 
-            ipt_kg.value = `${kg_mes_total} kg por mês` // Exibe o peso mensal transportado
+                    mes++ // Avança para o próximo mês
+                }
 
-            ipt_porcentagem.value = `5%` // Exibe o percentual de perda
+                div_meses.innerHTML = blocos_meses // Exibe os resultados acumulados dos 12 meses
 
-            ipt_valor.value = `R$ ${valor_kg.toFixed(2)}/kg` // Exibe o valor comercial informado
+                peso_atum.innerHTML = `${perda_rotineira_kg.toLocaleString('pt-BR')} kg de atum` // Exibe a perda anual em kg
 
-            ipt_perda.value = `R$ ${perda_mes_valor.toFixed(2)}` // Exibe o prejuízo mensal
+                mensagem_calculo.innerHTML = prejuizo.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }) // Exibe o prejuízo anual em reais
+
+                ipt_cargas_perdidas.value = `${cargas_mes} cargas x 12` // Demonstra o cálculo das cargas anuais
+
+                ipt_cargas_ano.value = `${cargas_ano.toLocaleString('pt-BR')} cargas por ano` // Exibe a quantidade anual de cargas
+
+                ipt_qtd_kg.value = `${kg_total.toLocaleString('pt-BR')} kg de atum` // Exibe o peso transportado no ano
+
+                ipt_kg.value = `${kg_mes_total.toLocaleString('pt-BR')} kg por mês` // Exibe o peso transportado no mês
+
+                ipt_porcentagem.value = `5%` // Exibe o percentual de perda considerado
+
+                ipt_valor.value = `${valor_kg.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' })}/kg` // Exibe o preço comercial por kg
+
+                ipt_perda.value = perda_mes_valor.toLocaleString('pt-BR', { style: 'currency', currency: 'BRL' }) // Exibe o prejuízo mensal
+
+                resultado_calculadora.style.visibility = 'visible' // Exibe o quadro da direita após o cálculo
+            }
         }
-    }
-
-</script>
+    </script>
+</body>
+</html>

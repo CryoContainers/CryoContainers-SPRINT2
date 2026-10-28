@@ -28,18 +28,18 @@
 
                 <p class="campos">E-mail</p>
                 <input type="text" id="email_ipt"> <br>
-                
+
                 <p class="campos">Senha</p>
                 <input type="password" id="senha_ipt"><br>
 
                 <div id="login_efetuado"></div>
                 <div id="login_negado"></div>
-                <a href="../Site_Dash_Geral/dashboard_geral.html">
+                <a>
                     <button class="botao_entrar" onclick="entrar()">Entrar</button>
                 </a>
                 <p class="ou_txt">Ou</p>
                 <a href="../Tela_Cadastro/Cadastro.html">
-                <button class="botao_conta">Criar conta</button>
+                    <button class="botao_conta">Criar conta</button>
                 </a>
 
             </div>
@@ -51,52 +51,54 @@
 
 <script>
 
-let tentativas = 3
+    let tentativas = 3
 
-function entrar() {
-    let senha_user = senha_ipt.value
-    let senha = "Urubu100"
-    let email = email_ipt.value
+    function entrar() {
+        let senha_user = senha_ipt.value
+        let senha = "Urubu100"
+        let email = email_ipt.value
 
-    // Validação de bloqueio do usuário
-    if (tentativas <= 0) {
-        alert(`Acesso bloqueado!`)
-        login_negado.innerHTML = `Login bloqueado!`
-    }
-
-    // Validação do campo E-MAIL vazio
-    else if (email.length == 0) {
-        alert(`Insira um e-mail no campo E-MAIL!`)
-    }
-
-    // Validação do formato do E-MAIL
-    else if (!email.includes("@")) {
-        alert(`Seu E-MAIL precisa conter "@"!`)
-    }
-
-    // Validação do campo SENHA vazio
-    else if (senha_user.length == 0) {
-        alert(`Insira uma senha no campo SENHA!`)
-    }
-
-    // Validação de SENHA incorreta
-    else if (senha_user != senha) {
-        tentativas--
-
-        if (tentativas == 0) {
-            alert(`Acesso bloqueado! Você esgotou suas tentativas.`)
+        // Validação de bloqueio do usuário
+        if (tentativas <= 0) {
+            alert(`Acesso bloqueado!`)
             login_negado.innerHTML = `Login bloqueado!`
         }
-        else {
-            alert(`Senha incorreta! Restam ${tentativas} tentativas.`)
+
+        // Validação do campo E-MAIL vazio
+        else if (email.length == 0) {
+            alert(`Insira um e-mail no campo E-MAIL!`)
+        }
+
+        // Validação do formato do E-MAIL
+        else if (!email.includes("@")) {
+            alert(`Seu E-MAIL precisa conter "@"!`)
+        }
+
+        // Validação do campo SENHA vazio
+        else if (senha_user.length == 0) {
+            alert(`Insira uma senha no campo SENHA!`)
+        }
+
+        // Validação de SENHA incorreta
+        else if (senha_user != senha) {
+            tentativas--
+
+            if (tentativas == 0) {
+                alert(`Acesso bloqueado! Você esgotou suas tentativas.`)
+                login_negado.innerHTML = `Login bloqueado!`
+            }
+            else {
+                alert(`Senha incorreta! Restam ${tentativas} tentativas.`)
+            }
+        }
+
+        // Validação de SENHA correta
+        else if (senha_user == senha) {
+            login_efetuado.innerHTML = `Login efetuado com sucesso!`
+            tentativas = 3
+
+            window.location.href = "../Site_Dash_Geral/dashboard_geral.html"
         }
     }
-
-    // Validação de SENHA correta
-    else if (senha_user == senha) {
-        login_efetuado.innerHTML = `Login efetuado com sucesso!`
-        tentativas = 3
-    }
-}
 
 </script>

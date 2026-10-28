@@ -1,3 +1,4 @@
+
 @import url('https://fonts.googleapis.com/css2?family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&family=Junge&family=Kapakana:wght@300..400&display=swap');
 
 * {
@@ -62,9 +63,7 @@ html {
     text-decoration: underline;
     text-decoration-color: #063354;
     text-underline-offset: 10px;
-    
 }
-
 
 .botoesMenu {
     display: flex;
@@ -110,6 +109,7 @@ html {
     font-family: Inter, Arial, Helvetica;
     font-size: medium;
 }
+
 .botaoLogin {
     display: flex;
     position: end;
@@ -285,7 +285,6 @@ h1 {
     display: block;
 }
 
-
 .box3 {
     width: 100%;
     min-height: 594px;
@@ -455,7 +454,7 @@ h1 {
     margin-top: 30px;
 }
 
-.prod-desc{
+.prod-desc {
     font-family: Inter;
     font-weight: 300;
     font-size: 15px;
@@ -464,14 +463,14 @@ h1 {
     margin-top: 20px;
 }
 
-.produto-cards{
+.produto-cards {
     display: flex;
     gap: 80px;
     justify-content: center;
     margin-top: 50px;
 }
 
-.card-produto{
+.card-produto {
     background: linear-gradient(135deg, #FFFFFF, #C1C1C1);
     width: 220px;
     height: 339px;
@@ -488,12 +487,12 @@ h1 {
     margin-bottom: 50px;
 }
 
-.card-produto img{
+.card-produto img {
     width: 78px;
     height: 78px;
 }
 
-.card-produto h3{
+.card-produto h3 {
     text-align: left;
     font-family: Junge;
     font-weight: lighter;
@@ -502,12 +501,11 @@ h1 {
 }
 
 .product-card-desc {
-    font-family: inter;
+    font-family: Inter;
     line-height: 20px;
     font-size: 12px;
     color: #063354;
 }
-
 
 .calculadora {
     width: 100%;
@@ -545,7 +543,7 @@ h1 {
 
 .textosimulador p {
     width: 500px;
-    font-family: inter;
+    font-family: Inter;
     color: #5b6b70;
     font-size: 13px;
     line-height: 20px;
@@ -570,7 +568,7 @@ h1 {
 }
 
 .texto-fontes {
-    font-family: inter;
+    font-family: Inter;
     font-style: italic;
     color: #5b6b70;
     font-size: 12px;
@@ -579,20 +577,19 @@ h1 {
 .operacao-meses {
     font-size: 13px;
     font-weight: bold;
-    font-family: junge;
+    font-family: Junge;
     color: #b9c2c7;
-
 }
 
 .US {
-    font-family: bookman;
+    font-family: Bookman;
     font-size: 50px;
     color: #fffdf4;
 }
 
 #peso_atum {
     font-size: 12px;
-    font-family: junge;
+    font-family: Junge;
     font-weight: bold;
     color: #7fa6ad;
     margin-bottom: 65px;
@@ -610,6 +607,7 @@ h1 {
 .valor-kg {
     display: flex;
     align-items: center;
+    margin-bottom: 20px;
 }
 
 .valor-kg {
@@ -617,14 +615,16 @@ h1 {
 }
 
 .quadro-azul input {
-    background-color: transparent;
-    border: none;
-    border-bottom: 2px solid #466b72;
+    background-color: #164562;
+    border: 2px solid #0f3c58;
+    border-radius: 10px;
     width: 100px;
+    height: 40px;
     margin-right: 15px;
+    padding: 2px;
     color: #FFFDF4;
-    font-size: 40px;
-    font-family: bookman;
+    font-size: 30px;
+    font-family: Bookman;
 }
 
 .quadro-azul input:focus {
@@ -671,12 +671,11 @@ h1 {
 }
 
 .cargas_ano p {
-    font-family: inter;
+    font-family: Inter;
     font-size: 15px;
     color: #927e68;
     text-transform: uppercase;
     margin-bottom: 10px;
-    
 }
 
 .cargas_ano::after {
@@ -708,7 +707,7 @@ h1 {
     background-color: #FFFFFF;
     box-shadow: none;
     color: #0b283d;
-    font-family: inter;
+    font-family: Inter;
     text-align: center;
 }
 
@@ -717,9 +716,9 @@ h1 {
 }
 
 .cargas_ano .ipt_destaque {
-    background-color:#de6843;
+    background-color: #de6843;
     color: white;
-    border-color: #de6843 ;
+    border-color: #de6843;
 }
 
 .meses {
@@ -741,16 +740,60 @@ h1 {
 }
 
 .mes small {
-    font-family: inter;
+    font-family: Inter;
     font-size: 14px;
     white-space: nowrap;
 }
 
 .mes strong {
-    font-family: inter;
+    font-family: Inter;
     font-size: 14px;
 }
 
+#resultado_calculadora {
+    visibility: hidden;
+}
+
+.chamada-cliente {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+    background-color: #F2EEE5;
+    border-radius: 0px;
+    padding: 40px;
+    margin-top: 30px;
+    margin-left: -30px;
+    margin-right: -30px;
+}
+
+.chamada-cliente h2 {
+    font-family: Junge;
+    font-size: 32px;
+    font-weight: 400;
+    color: #063354;
+    margin-bottom: 15px;
+}
+
+.chamada-cliente p {
+    font-family: Inter;
+    font-size: 16px;
+    color: #5b6b70;
+    line-height: 1.6;
+    max-width: 650px;
+    margin-bottom: 25px;
+}
+
+.chamada-cliente button {
+    background-color: #DE6843;
+    color: #FFFDF4;
+    border: none;
+    border-radius: 25px;
+    padding: 15px 30px;
+    font-family: Inter;
+    font-size: 16px;
+    cursor: pointer;
+}
 
 .box6 {
     width: 100%;

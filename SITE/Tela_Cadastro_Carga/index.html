@@ -72,7 +72,7 @@
                     </div>
                 </div>
                 <div id="cadastro_efetuado"></div>
-                <a href="../Site_Dash_Geral/dashboard_geral.html">
+                <a>
                     <button class="botaoCadastrar" onclick="cadastrar()">Cadastrar Container</button>
                 </a>
 
@@ -84,6 +84,7 @@
 </body>
 
 </html>
+
 <script>
     function cadastrar() {
         let numeroContainer = Number(numeroContainer_ipt.value)
@@ -97,25 +98,34 @@
         let tempCritTex = tempCrit_ipt.value
         let tempCritNum = Number(tempCrit_ipt.value)
 
-        // validação do campo numeroContainer
+        // Validações do campo numeroContainer
         if (numeroContainer == 0) {
             alert(`Identifique a qual container pertence esta carga!`)
             numeroContainer_ipt.value = '';
             numeroContainer_ipt.focus();
-        } else if (numeroContainer < 0) {
+        }
+        else if (numeroContainer < 0) {
             alert(`Não é possível identificação com número negativo`)
             numeroContainer_ipt.value = '';
             numeroContainer_ipt.focus();
         }
+        else if (numeroContainer % 1 != 0) {
+            alert(`A numeração do contêiner deve ser um número inteiro!`)
+            numeroContainer_ipt.value = '';
+            numeroContainer_ipt.focus();
+        }
+
         // Validações do campo carga total
         else if (cargaTexto === '') {
             alert(`Informe o peso da carga!`)
             cargaTotal_ipt.focus();
-        } else if (cargaTotal == 0) {
+        }
+        else if (cargaTotal == 0) {
             alert(`Não é possível cadastrar com peso nulo!`)
             cargaTotal_ipt.value = '';
             cargaTotal_ipt.focus();
-        } else if (cargaTotal < 0) {
+        }
+        else if (cargaTotal < 0) {
             alert(`Não é possível cadastrar com peso negativo!`)
             cargaTotal_ipt.value = '';
             cargaTotal_ipt.focus();
@@ -126,7 +136,8 @@
             alert(`Não é possível cadastrar carga sem valor por quilograma!`)
             valorKg_ipt.value = '';
             valorKg_ipt.focus();
-        } else if (valorKg < 0) {
+        }
+        else if (valorKg < 0) {
             alert(`Não é possível cadastrar carga com valor negativo por quilograma!`)
             valorKg_ipt.value = '';
             valorKg_ipt.focus();
@@ -135,21 +146,33 @@
         // Validações dos campos de temperatura
         else if (tempMinTex === '') {
             alert(`Informe a temperatura mínima!`)
-            tempMin_ipt.focus()
-        } else if (tempMaxTex === '') {
+            tempMin_ipt.focus();
+        }
+        else if (tempMaxTex === '') {
             alert(`Informe a temperatura máxima!`)
-            tempMax_ipt.focus()
-        } else if (tempCritTex === '') {
+            tempMax_ipt.focus();
+        }
+        else if (tempCritTex === '') {
             alert(`Informe a temperatura crítica!`)
-            tempCrit_ipt.focus()
-        } else if ((tempMinNum > tempMaxNum)) {
-            alert('Não é possível que a temperatura mínima seja maior que a temperatura máxima!')
+            tempCrit_ipt.focus();
+        }
+        else if (tempMinNum > tempMaxNum) {
+            alert(`Não é possível que a temperatura mínima seja maior que a temperatura máxima!`)
             tempMin_ipt.value = '';
             tempMin_ipt.focus();
-        } else if ((tempMaxNum > tempCritNum)) {
-            alert('Temperatura máxima deve ser menor ou igual à temperatura crítica!')
+        }
+        else if (tempMaxNum > tempCritNum) {
+            alert(`Temperatura máxima deve ser menor ou igual à temperatura crítica!`)
             tempMax_ipt.value = '';
             tempMax_ipt.focus();
+        }
+
+        // Caso todas as validações estejam corretas
+        else {
+            alert(`Contêiner cadastrado com sucesso!`)
+
+            // Redireciona para a dashboard geral
+            window.location.href = "../Site_Dash_Geral/dashboard_geral.html"
         }
     }
 </script>
