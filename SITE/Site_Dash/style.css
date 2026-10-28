@@ -267,3 +267,11 @@ header a {
     color: #D76F58;
 }
 
+.data_filtro{
+    display: flex;
+    justify-content: space-between;
+}
+
+.data_filtro input{
+    margin: 10px;
+}
