@@ -5,6 +5,7 @@ CREATE TABLE empresa (
     id INT AUTO_INCREMENT PRIMARY KEY,
     codigo_ativacao VARCHAR(50) UNIQUE,
     razao_social VARCHAR(50) NOT NULL,
+    nome_fantasia VARCHAR(70),
     cnpj CHAR(14) NOT NULL UNIQUE
 );
 
@@ -15,46 +16,56 @@ CREATE TABLE usuario (
     cpf CHAR(11) NOT NULL UNIQUE,
     telefone VARCHAR(20) NULL UNIQUE,
     senha VARCHAR(200) NOT NULL,
-    administrador TINYINT(1) DEFAULT 0,
     dt_cadastro DATETIME DEFAULT CURRENT_TIMESTAMP,
     fk_empresa INT NOT NULL,
-    CONSTRAINT chkAdmin CHECK (administrador IN(0,1)),
-    CONSTRAINT ckFk_empresa_cadastro FOREIGN KEY (fk_empresa)
+    CONSTRAINT ckFk_empresa_usuario FOREIGN KEY (fk_empresa)
     REFERENCES empresa (id)
+);
+
+CREATE TABLE viagem (
+    id INT AUTO_INCREMENT PRIMARY KEY,
+    local_origem VARCHAR(45),
+    local_destino VARCHAR(45),
+    dt_inicio DATE,
+    dt_final DATE,
+    status VARCHAR(45),
+    CONSTRAINT chk_status_viagem CHECK (status IN('Planejada', 'Em andamento', 'Finalizada' ))
 );
 
 CREATE TABLE conteiner (
     id INT PRIMARY KEY AUTO_INCREMENT,
     codigo_identificacao VARCHAR(11) UNIQUE NOT NULL,
     fk_empresa INT NOT NULL,
+    fk_viagem INT NOT NULL,
     CONSTRAINT ckFk_empresa_conteiner FOREIGN KEY (fk_empresa) 
-    REFERENCES empresa (id)
+    REFERENCES empresa (id),
+    CONSTRAINT ckFk_viagem_conteiner FOREIGN KEY (fk_viagem)
+    REFERENCES viagem(id)
 );
 
 CREATE TABLE carga (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    peso_total DECIMAL(10,2),
     temp_ideal_min DECIMAL(5,2) NOT NULL,
     temp_ideal_max DECIMAL(5,2) NOT NULL,
     temp_critica DECIMAL(5,2) NOT NULL,
     fk_conteiner INT NOT NULL,
     CONSTRAINT ckFk_conteiner_carga FOREIGN KEY (fk_conteiner)
-    REFERENCES conteiner (id)
+    REFERENCES conteiner(id)
 );
 
 CREATE TABLE sensor (
     id INT PRIMARY KEY AUTO_INCREMENT,
     tipo VARCHAR(10),
-    status_sensor VARCHAR(15) DEFAULT 'Online',
+    status_sensor VARCHAR(15) DEFAULT 'Inativo',
     fk_conteiner INT NOT NULL,
-    CONSTRAINT ckStatus_sensor CHECK (status_sensor IN ('Online', 'Offline', 'Manutenção')),
+    CONSTRAINT ckStatus_sensor CHECK (status_sensor IN ('Inativo', 'Ativo')),
     CONSTRAINT ckFK_conteiner_sensor FOREIGN KEY (fk_conteiner)
     REFERENCES conteiner (id)
 );
 
 CREATE TABLE leitura_sensor (
     id INT PRIMARY KEY AUTO_INCREMENT,
-    temperatura_sensor DECIMAL(6,2) NOT NULL,
+    temperatura_sensor DECIMAL(6,2),
     dt_hora DATETIME DEFAULT CURRENT_TIMESTAMP,
     fk_sensor INT NOT NULL,
     CONSTRAINT ckFK_sensor_leitura_sensor FOREIGN KEY (fk_sensor)
