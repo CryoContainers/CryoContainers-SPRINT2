@@ -644,7 +644,7 @@ h1 {
 
 #mensagem_calculo {
     display: flex;
-    font-size: 50px;
+    font-size: 42px;
     color: #FFFDF4;
     white-space: nowrap;
 }
@@ -747,7 +747,7 @@ h1 {
 
 .mes strong {
     font-family: Inter;
-    font-size: 14px;
+    font-size: 12px;
 }
 
 #resultado_calculadora {
