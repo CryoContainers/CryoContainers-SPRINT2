@@ -20,8 +20,8 @@ h1 {
 }
 
 header {
+    font-family: inter;
     display: flex;
-    grid: 1;
     align-items: center;
     justify-content: space-between;
     padding: 0 25px;
@@ -36,15 +36,40 @@ header {
 
 .menu {
     display: flex;
-    gap: 40px;
-    align-items: center;
+    justify-content: space-between;
+    gap: 150px;
 }
 
 .menu a {
+    position: relative;
+    display: flex;
+    align-items: center;
     text-decoration: none;
     color: white;
+    padding-bottom: 8px;
 }
 
+.menu a.ativo::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    border-radius: 2px;
+    margin-bottom: -12px;
+}
+
+.ola-sair {
+    display: flex;
+    gap: 60px;
+}
+
+.ola-sair a {
+    text-decoration: none;
+    color: rgb(196, 48, 48);
+}
 .botoes_menu {
     display: flex;
     gap: 40px;
@@ -112,12 +137,11 @@ header {
 .painel-notificacoes {
     background-color: #FFFFFF;
     padding: 30px;
-    margin-top: 88px;
+    margin-top: 102px;
     margin-right: 25px;
     border-radius: 10px;
-    width: 400px;
+    width: 420px;
     height: 60vh;
-    flex-shrink: 0;
 }
 
 .titulo-linha {
@@ -159,14 +183,24 @@ header {
 
 .lista-alertas {
     margin-top: 10px ;
+    margin-right: 20px;
 }
 
 .card-alerta-alerta-perigo, .card-alerta-alerta-sucesso {
-    padding: 15px;
+    display: flex;
+    flex-direction: column;
+    height: 50px;
+    width: 100%;
+    padding: 10px;
     border-radius: 10px;
     margin-bottom: 10px;
 }
 
+.texto-checkbox {
+    display: flex;
+    justify-content: space-between;
+    margin-right: 10px;
+}
 
 .card-alerta-alerta-perigo {
     background-color: #FFDED7;
@@ -203,7 +237,7 @@ header {
 
 .cards-resumo {
     display: grid;
-    grid-template-columns: repeat(3, 1fr);
+    grid-template-columns: repeat(4, 1fr);
     gap: 30px;
     margin-top: 20px;
 }
@@ -232,17 +266,25 @@ header {
     background-color: #DDF7DD;
     height: 100px;
     border-radius: 10px;
-    padding: 20px;
+    padding: 10px;
     box-sizing: border-box;
 }
 
-.card-kpi-kpi-normais p {
+.titulo-kpi-normais {
     text-transform: uppercase;
     font-family: Inter;
     color: #177200;
+    margin-left: 5px;
 }
 
+.card-kpi-kpi-normais p {
+    margin-left: 5px;
+    font-family: Inter;
+    color: #177200;
+    font-size: 13px;
+}
 .card-kpi-kpi-normais span {
+    margin-left: 5px;
     font-family: Junge;
     font-size: 40px;
     color: #177200;
@@ -252,20 +294,56 @@ header {
     background-color: #D76F58;
     height: 100px;
     border-radius: 10px;
-    padding: 20px;
+    padding: 10px;
     box-sizing: border-box;
 }
 
-.card-kpi-kpi-alerta p {
+.titulo-kpi-alerta {
     text-transform: uppercase;
     font-family: Inter;
     color: #FFC9AC;
+    margin-left: 5px;
 }
 
+.card-kpi-kpi-alerta p {
+    margin-left: 5px;
+    font-family: Inter;
+    color: #FFC9AC;
+    font-size: 13px;
+}
 .card-kpi-kpi-alerta span {
+    margin-left: 5px;
     font-family: Junge;
     font-size: 40px;
     color: #FFC9AC;
+}
+
+.card-kpi-kpi-sem-conexao {
+    background-color: gray;
+    height: 100px;
+    border-radius: 10px;
+    padding: 10px;
+    box-sizing: border-box;
+}
+
+.titulo-kpi-sem-conexao {
+    text-transform: uppercase;
+    font-family: Inter;
+    color: #363d42;
+    margin-left: 5px;
+}
+
+.card-kpi-kpi-sem-conexao p {
+    margin-left: 5px;
+    font-family: Inter;
+    color: #363d42;
+    font-size: 13px;
+}
+.card-kpi-kpi-sem-conexao span {
+    margin-left: 5px;
+    font-family: Junge;
+    font-size: 40px;
+    color: #363d42;
 }
 
 .area-filtro {
@@ -348,6 +426,16 @@ header {
     border: solid #177200 3px;
 }
 
+.card-conteiner-card-sem-conexao {
+    font-family: Inter;
+    background-color: #FFFFFF;
+    box-sizing: border-box;
+    padding: 20px;
+    border-radius: 10px;
+    height: 145px;
+    border: solid gray 3px;
+}
+
 .card-conteiner-card-alerta, .card-conteiner-card-normal h3 {
     font-family: Inter;
     color: #063354;
@@ -377,6 +465,18 @@ header {
     margin-left: auto;
 }
 
+.tag-status-status-cinza {
+    font-family: Inter;
+    background-color: grey;
+    border-radius: 20px;
+    width: 135px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: #363d42;
+    margin-left: auto;
+}
+
 .card-temperatura-temp-alerta {
     font-family: Junge;
     font-size: 40px;
@@ -395,10 +495,23 @@ header {
     border-bottom: solid #b6c9d6 1px;
 }
 
+.card-temperatura-sem-conexao {
+    font-family: Junge;
+    font-size: 40px;
+    align-items: center;
+    color: gray;
+    margin-top: 5px;
+    border-bottom: solid gray 1px;
+}
+
 .card-rodape {
     font-family: Inter;
     font-size: 11px;
     color: #8197A7;
     margin-top: 10px;
+}
+
+.viagem {
+    margin-left: 15px;
 }
 

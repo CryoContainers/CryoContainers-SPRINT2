@@ -12,13 +12,27 @@
     <div class="boxPai">
 
         <header>
-            <img src="../Site_Dash/logo_200x80_transparente.png" id="logo">
+            <a href="../Site_Institucional/index.html">
+                <img src="../Site_Dash/logo_200x80_transparente.png" id="logo">
+            </a>
 
             <div class="menu">
-                <p>Containers</p>
+                <a href="../Site_Dash_Geral/dashboard_geral.html" class="ativo">
+                    <p>Containers</p>
+                </a>
+
+                <a href="../Tela_Cadastro_Carga/index.html">
+                    <p>Adicionar Contêineres</p>
+                </a>
+            </div>
+            <div class="ola-sair">
+                <p>Olá, Operador</p>
+                <a href="../Tela_Login/Login.html">
+                    <p>Sair</p>
+                </a>
+
             </div>
 
-            <p>Olá, Operador</p>
         </header>
         <div class="area-dash">
             <div class="area-containers">
@@ -29,7 +43,7 @@
                     <a href="../Tela_Cadastro_Carga/index.html">
                         <button class="botao-adicionar" type="button">
                             <span class="icone-mais">+</span>
-                            Adicionar Container
+                            Adicionar Contêineres
                         </button>
                     </a>
                 </div>
@@ -40,13 +54,19 @@
                         <span>6</span>
                     </div>
                     <div class="card-kpi-kpi-normais">
-                        <p>NORMAIS</p>
-                        <span>5</span>
+                        <div class="titulo-kpi-normais">NORMAIS</div>
+                        <span>4</span>
+                        <p>Abaixo do limite de -18°C</p>
                     </div>
-
                     <div class="card-kpi-kpi-alerta">
-                        <p>EM ALERTA</p>
+                        <div class="titulo-kpi-alerta">EM ALERTA</div>
                         <span>1</span>
+                        <p>Acima do limite de -18°C</p>
+                    </div>
+                    <div class="card-kpi-kpi-sem-conexao">
+                        <div class="titulo-kpi-sem-conexao">SEM CONEXÃO</div>
+                        <span>1</span>
+                        <p>Sem leituras há 15 minutos</p>
                     </div>
                 </div>
 
@@ -76,24 +96,25 @@
                             </div>
                             <div class="card-rodape">
                                 <span>Limite Máximo: -18 °C</span><br>
-                                <span class="text-left-card">Atualizado: 26/10/26 11:50</span>
-                                <span style="margin-right: 15px;">Viagem Filipinas <br>- São Paulo</span>
+                                <span>Atualizado: 26/10/26 11:50</span>
+                                <span class="viagem">Tailândia - São Paulo</span>
                             </div>
                         </div>
                     </a>
-                    <div class="card-conteiner-card-normal">
+                    <div class="card-conteiner-card-sem-conexao">
                         <div class="card-cabecalho">
                             <h3>CRY-0932</h3>
-                            <div class="tag-status-status-verde">
-                                <span class="ponto-verde"></span> ● Normal
+                            <div class="tag-status-status-cinza">
+                                <span class="ponto-verde"></span> ● Sem Conexão
                             </div>
                         </div>
-                        <div class="card-temperatura">
-                            -13 ºC
+                        <div class="card-temperatura-sem-conexao">
+                            -19 ºC
                         </div>
                         <div class="card-rodape">
                             <span>Limite Máximo: -18 °C</span><br>
                             <span class="text-left-card">Atualizado: 26/10/26 11:50</span>
+                            <span class="viagem">Tailândia - São Paulo</span>
                         </div>
                     </div>
                     <div class="card-conteiner-card-normal">
@@ -104,11 +125,12 @@
                             </div>
                         </div>
                         <div class="card-temperatura">
-                            -15,6 ºC
+                            -20,1 ºC
                         </div>
                         <div class="card-rodape">
                             <span>Limite Máximo: -18 °C</span><br>
                             <span class="text-left-card">Atualizado: 26/10/26 11:50</span>
+                            <span class="viagem">Tailândia - São Paulo</span>
                         </div>
                     </div>
                     <div class="card-conteiner-card-normal">
@@ -119,11 +141,12 @@
                             </div>
                         </div>
                         <div class="card-temperatura">
-                            -14 ºC
+                            -22,2 ºC
                         </div>
                         <div class="card-rodape">
                             <span>Limite Máximo: -18 °C</span><br>
                             <span class="text-left-card">Atualizado: 26/10/26 11:50</span>
+                            <span class="viagem">Tailândia - São Paulo</span>
                         </div>
                     </div>
 
@@ -135,11 +158,12 @@
                             </div>
                         </div>
                         <div class="card-temperatura">
-                            -16 ºC
+                            -19,1 ºC
                         </div>
                         <div class="card-rodape">
                             <span>Limite Máximo: -18 °C</span><br>
                             <span class="text-left-card">Atualizado: 26/10/26 11:50</span>
+                            <span class="viagem">Tailândia - São Paulo</span>
                         </div>
                     </div>
 
@@ -151,11 +175,12 @@
                             </div>
                         </div>
                         <div class="card-temperatura">
-                            -14,5 ºC
+                            -20,3 ºC
                         </div>
                         <div class="card-rodape">
                             <span>Limite Máximo: -18 °C</span><br>
                             <span class="text-left-card">Atualizado: 26/10/26 11:50</span>
+                            <span class="viagem">Tailândia - São Paulo</span>
                         </div>
                     </div>
 
@@ -181,26 +206,39 @@
                 <div class="lista-alertas">
                     <div class="card-alerta-alerta-perigo">
                         <b>Desvio de temperatura</b>
-                        <p>Pico de 5,0 ºC detectado - 26/10/26 10:10 - Contêiner CRY-0931</p>
-                        <input type="checkbox" name="opcao" value="1">
+                        <div class="texto-checkbox">
+                            <p>Pico de 5,0 ºC detectado</p>
+                            <input type="checkbox" name="opcao" value="1">
+                        </div>
+                        <p>26/10/26 10:10 - Contêiner CRY-0931</p>
+
                     </div>
 
                     <div class="card-alerta-alerta-sucesso">
                         <b>Temperatura Normalizada</b>
-                        <p>Retorno à faixa ideal - 26/10/26 11:00 - Contêiner CRY-0931</p>
-                        <input type="checkbox" name="opcao" value="1">
+                        <div class="texto-checkbox">
+                            <p>Retorno à faixa ideal</p>
+                            <input type="checkbox" checked name="opcao" value="1">
+                        </div>
+                        <p>26/10/26 11:00 - Contêiner CRY-0931</p>
                     </div>
 
                     <div class="card-alerta-alerta-perigo">
                         <b>Desvio de temperatura</b>
-                        <p>Pico de -13 ºC detectado - 26/10/26 11:30 - Contêiner CRY-0931</p>
-                        <input type="checkbox" name="opcao" value="1">
+                        <div class="texto-checkbox">
+                            <p>Pico de -13 ºC detectado</p>
+                            <input type="checkbox" checked name="opcao" value="1">
+                        </div>
+                        <p>26/10/26 11:30 - Contêiner CRY-0931</p>
                     </div>
 
                     <div class="card-alerta-alerta-sucesso">
                         <b>Temperatura Normalizada</b>
-                        <p>Retorno à faixa ideal - 26/10/26 11:50 - Contêiner CRY-0931</p>
-                        <input type="checkbox" name="opcao" value="1">
+                        <div class="texto-checkbox">
+                            <p>Retorno à faixa ideal</p>
+                            <input type="checkbox" checked name="opcao" value="1">
+                        </div>
+                        <p>26/10/26 11:50 - Contêiner CRY-0931</p>
                     </div>
                 </div>
 
