@@ -9,6 +9,81 @@ body {
   background-color: #FFFDF4;
 }
 
+header {
+    font-family: Inter;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    padding: 0 25px;
+    background-color: #063354;
+    color: white;
+
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 74px;
+    z-index: 1000;
+}
+
+#logo {
+    height: 60px;
+    padding: 7px;
+}
+
+.menu {
+    display: flex;
+    justify-content: space-between;
+    gap: 150px;
+}
+
+.menu a {
+    position: relative;
+    display: flex;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+}
+
+.menu a.ativo::after {
+    content: "";
+    position: absolute;
+    left: 0;
+    bottom: 0;
+    width: 100%;
+    height: 3px;
+    background-color: white;
+    border-radius: 2px;
+}
+
+.ola-sair {
+    display: flex;
+    gap: 60px;
+}
+
+.ola-sair a {
+    text-decoration: none;
+    color: rgb(196, 48, 48);
+}
+.botoes_menu {
+    display: flex;
+    gap: 40px;
+    margin: auto;
+}
+
+.botoes_menu .botoes,
+.perfil-operador {
+    color: #FFFFFF;
+    font-family: Inter;
+    font-size: 13px;
+    text-decoration: none;
+}
+
+.perfil-operador {
+    display: flex;
+    justify-content: end;
+}
+
 .container {
     display: flex;
     min-height: 100vh;
@@ -89,7 +164,7 @@ width: 54%;
 
 .titulo_infos{
     font-family: Junge;
-    font-size: 50px;
+    font-size: 40px;
     font-weight: 150;
     color: #063354;
 
