@@ -10,9 +10,100 @@ body {
     background-color: #FFFDF4;
 }
 
+.boxPai {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+}
+
+.header {
+    width: 100%;
+    height: 32px;
+    background-color: #063354;
+    font-family: Junge;
+    color: white;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 12px;
+}
+
+.menu {
+    width: 100%;
+    height: 69px;
+    background-color: #FFFDF4;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    position: relative;
+    border-bottom: solid #D8D8D8 1px;
+}
+
+.botoesMenu {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    left: 0;
+    right: 0;
+    gap: 100px;
+    margin-right: 10px;
+}
+
+.botoes {
+    background-color: #FFFDF4;
+    border: 0px;
+    color: #063354;
+    font-family: Inter;
+    font-size: medium;
+    text-decoration: none;
+}
+
+.areaCadastro {
+    margin-left: auto;
+    margin-right: 15px;
+    display: flex;
+    align-items: center;
+    position: relative;
+}
+
+.areaCadastro a {
+    text-decoration: none;
+    color: white;
+}
+
+.botaoCadastro {
+    display: flex;
+    color: white;
+    background: linear-gradient(90deg, #063354, #008080);
+    border: solid 0px;
+    border-radius: 5px;
+    height: 30px;
+    width: 150px;
+    align-items: center;
+    justify-content: center;
+    font-family: Inter, Arial, Helvetica;
+    font-size: medium;
+}
+.botaoLogin {
+    display: flex;
+    position: end;
+    color: white;
+    background: linear-gradient(90deg, #9bbdd6, #359595);
+    border: solid 0px;
+    border-radius: 5px;
+    height: 30px;
+    width: 150px;
+    align-items: center;
+    justify-content: center;
+    font-family: Inter, Arial, Helvetica;
+    font-size: medium;
+    margin-left: 10px;
+}
+
 .container {
     display: flex;
-    min-height: 100vh;
+    flex: 1;
 }
 
 .painel-esquerdo {
@@ -32,14 +123,13 @@ body {
 }
 
 .logo {
-    position: absolute;
-    top: 0px;
-    left: 70px;
+    position:absolute;
+    top: 17px;
+    left: 0px;
 }
 
 .painel-direito {
     width: 58%;
-    min-height: 100vh;
     display: flex;
     justify-content: center;
     align-items: center;
