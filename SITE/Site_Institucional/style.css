@@ -58,6 +58,14 @@ html {
     border-bottom: solid #D8D8D8 1px;
 }
 
+.menu .botoesMenu .ativo {
+    text-decoration: underline;
+    text-decoration-color: #063354;
+    text-underline-offset: 10px;
+    
+}
+
+
 .botoesMenu {
     display: flex;
     justify-content: center;
@@ -77,6 +85,7 @@ html {
 
 .areaCadastro {
     right: 40px;
+    margin-right: 15px;
     top: 0;
     bottom: 0;
     display: flex;
