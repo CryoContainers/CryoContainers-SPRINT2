@@ -1,58 +1,71 @@
--- Arquivo de apoio, caso você queira criar tabelas como as aqui criadas para a API funcionar.
--- Você precisa executar os comandos no banco de dados para criar as tabelas,
--- ter este arquivo aqui não significa que a tabela em seu BD estará como abaixo!
-
-/*
-comandos para mysql server
-*/
-
-CREATE DATABASE aquatech;
-
-USE aquatech;
+CREATE DATABASE monitoramento;
+USE monitoramento;
 
 CREATE TABLE empresa (
 	id INT PRIMARY KEY AUTO_INCREMENT,
-	razao_social VARCHAR(50),
-	cnpj CHAR(14),
-	codigo_ativacao VARCHAR(50)
+	razao_social VARCHAR(50) NOT NULL,
+	cnpj CHAR(14) UNIQUE NOT NULL,
+	nome_fantasia VARCHAR(50),
+	codigo_ativacao VARCHAR(50) UNIQUE
+);
+
+CREATE TABLE viagem (
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	local_origem VARCHAR(45),
+	local_destino VARCHAR(45),
+	dt_inicio DATE,
+	dt_final DATE,
+	situacao VARCHAR(45)
+);
+
+CREATE TABLE tipo_alerta (
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	nome_alerta VARCHAR(45) NOT NULL,
+	descricao VARCHAR(100)
 );
 
 CREATE TABLE usuario (
 	id INT PRIMARY KEY AUTO_INCREMENT,
-	nome VARCHAR(50),
-	email VARCHAR(50),
-	senha VARCHAR(50),
-	fk_empresa INT,
+	nome VARCHAR(100) NOT NULL,
+	email VARCHAR(255) NOT NULL UNIQUE,
+	cpf CHAR(11) NOT NULL UNIQUE,
+	telefone VARCHAR(20) NOT NULL,
+	senha VARCHAR(50) NOT NULL,
+	senha_hash VARCHAR(255) NOT NULL,
+	dt_cadastro DATETIME DEFAULT CURRENT_TIMESTAMP,
+	fk_empresa INT NOT NULL,
 	FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
 );
 
-CREATE TABLE aviso (
+CREATE TABLE conteiner (
 	id INT PRIMARY KEY AUTO_INCREMENT,
-	titulo VARCHAR(100),
-	descricao VARCHAR(150),
-	fk_usuario INT,
-	FOREIGN KEY (fk_usuario) REFERENCES usuario(id)
+	codigo_identificacao VARCHAR(11) NOT NULL UNIQUE,
+	fk_empresa INT NOT NULL,
+	fk_viagem INT NOT NULL,
+	FOREIGN KEY (fk_empresa) REFERENCES empresa(id),
+	FOREIGN KEY (fk_viagem) REFERENCES viagem(id)
 );
 
-create table aquario (
-/* em nossa regra de negócio, um aquario tem apenas um sensor */
+CREATE TABLE sensor (
 	id INT PRIMARY KEY AUTO_INCREMENT,
-	descricao VARCHAR(300),
-	fk_empresa INT,
-	FOREIGN KEY (fk_empresa) REFERENCES empresa(id)
+	tipo VARCHAR(10),
+	situacao_sensor VARCHAR(15),
+	fk_conteiner INT NOT NULL
 );
 
-/* esta tabela deve estar de acordo com o que está em INSERT de sua API do arduino - dat-acqu-ino */
-
-create table medida (
+CREATE TABLE leitura_sensor (
 	id INT PRIMARY KEY AUTO_INCREMENT,
-	temperatura DECIMAL,
-	momento DATETIME,
-	fk_aquario INT,
-	FOREIGN KEY (fk_aquario) REFERENCES aquario(id)
+	temperatura_sensor DECIMAL(6,2),
+	dt_hora DATETIME DEFAULT CURRENT_TIMESTAMP,
+	fk_sensor INT NOT NULL,
+	FOREIGN KEY (fk_sensor) REFERENCES sensor(id)
 );
 
-insert into empresa (razao_social, codigo_ativacao) values ('Empresa 1', 'ED145B');
-insert into empresa (razao_social, codigo_ativacao) values ('Empresa 2', 'A1B2C3');
-insert into aquario (descricao, fk_empresa) values ('Aquário de Estrela-do-mar', 1);
-insert into aquario (descricao, fk_empresa) values ('Aquário de Peixe-dourado', 2);
+CREATE TABLE alerta (
+	id INT PRIMARY KEY AUTO_INCREMENT,
+	situacao_visto TINYINT,
+	fk_leitura INT,
+	fk_tipo_alerta INT NOT NULL,
+	FOREIGN KEY (fk_leitura) REFERENCES leitura_sensor(id),
+	FOREIGN KEY (fk_tipo_alerta) REFERENCES tipo_alerta(id)
+);
