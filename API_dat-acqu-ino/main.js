@@ -18,7 +18,7 @@ const serial = async (
     // conexão com o banco de dados MySQL
     let poolBancoDados = mysql.createPool(
         {
-            host: '127.0.0.1',
+            host: '10.18.32.39',
             user: 'aluno',
             password: 'Sptech#2024',
             database: 'MONITORAMENTO',
@@ -52,15 +52,13 @@ const serial = async (
         const valores = data.split(';');
         let temperatura = parseFloat(valores[0]);
 
-        if (temperatura < 22) {
-            temperatura = temperatura - 25;
-        } else if (temperatura < 29) {
-            temperatura = temperatura - 32;
-        } else if (temperatura < 32) {
-            temperatura = temperatura - 38;
-        } else {
-            temperatura = temperatura - 40;
-        }
+        if (temperatura < 26)
+            temperatura = temperatura - 43;
+        else if (temperatura < 100){
+            temperatura = temperatura - 43;
+        } 
+
+    
 
         // armazena os valores dos sensores nos arrays correspondentes
         valoresLM35.push(temperatura);
@@ -73,7 +71,7 @@ const serial = async (
                 'INSERT INTO leitura_sensor (temperatura_sensor, fk_sensor) VALUES (?, ?)',
                 [temperatura, 1]
             );
-            console.log("temperaturas inseridas no banco: " + temperatura);
+            console.log("temperaturas inseridas no banco: " + temperatura.toFixed(2));
 
         }
 
