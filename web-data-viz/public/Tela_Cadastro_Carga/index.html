@@ -1,0 +1,197 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cadastro</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+    <header>
+        <a href="../Site_Institucional/index.html">
+            <img src="../Site_Dash/logo_200x80_transparente.png" id="logo">
+        </a>
+
+        <div class="menu">
+            <a href="../Site_Dash_Geral/dashboard_geral.html">
+                <p>Contêineres</p>
+            </a>
+
+            <a href="../Tela_Cadastro_Carga/index.html" class="ativo">
+                <p>Adicionar Contêiner</p>
+            </a>
+        </div>
+        <div class="ola-sair">
+            <p>Olá, Operador</p>
+            <a href="../Tela_Login/Login.html">
+                <p>Sair</p>
+            </a>
+
+        </div>
+    </header>
+    <div class="container">
+        <div class="painel-esquerdo">
+            <a href="../Site_Dash_Geral/dashboard_geral.html">
+            </a>
+            <div class="textos_painel_esquerdo">
+                <p class="p1_txt">Do mar ao destino</p>
+                <p class="p2_txt">Defina o limite. Nós cuidamos do resto</p>
+                <p class="p3_txt">Informe as temperaturas ideais e críticas e acompanhe cada alerta em tempo real.</p>
+            </div>
+        </div>
+
+        <div class="painel-direito">
+            <div class="formulario">
+                <p class="titulo_infos">Insira as informações referentes ao contêiner</p>
+
+                <p class="campos">Numeração do contêiner</p>
+                <input type="number" id="numeroContainer_ipt"> <br>
+
+                <div class="campos-temp">
+                    <div>
+                        <p class="campos" for="tempMin_ipt">Temperatura ideal mínima</p>
+                        <input type="Number" id="tempMin_ipt">
+                    </div>
+
+                    <div>
+                        <p class="campos" for="tempMax_ipt">Temperatura ideal máxima</p>
+                        <input type="Number" id="tempMax_ipt">
+                    </div>
+
+                    <div>
+                        <p class="campos" for="tempCrit_ipt">Temperatura crítica </p>
+                        <input type="Number" id="tempCrit_ipt">
+                    </div>
+                </div>
+
+                <div class="campos-temp">
+                    <div>
+                        <p class="campos">Data de partida da viagem</p>
+                        <input type="date" id="dataPartida">
+                    </div>
+
+                    <div>
+                        <p class="campos">Data de chegada da viagem</p>
+                        <input type="date" id="dataChegada">
+                    </div>
+                </div>
+
+                <div class="campos-temp">
+                    <div>
+                        <p class="campos">Local de partida da viagem</p>
+                        <input id="localPartida_ipt">
+                    </div>
+
+                    <div>
+                        <p class="campos">Local de chegada da viagem</p>
+                        <input id="localChegada_ipt">
+                    </div>
+                </div>
+
+                <div id="cadastro_efetuado"></div>
+                <a href="../Site_Dash_Geral/dashboard_geral.html">
+                    <button class="botaoCadastrar" onclick="cadastrar()">Cadastrar Contêiner</button>
+                </a>
+
+            </div>
+
+
+        </div>
+    </div>
+</body>
+
+</html>
+
+<script>
+    function cadastrar() {
+        let numeroContainer = Number(numeroContainer_ipt.value)
+        let cargaTexto = cargaTotal_ipt.value
+        let cargaTotal = Number(cargaTexto)
+        let valorKg = Number(valorKg_ipt.value)
+        let tempMinTex = tempMin_ipt.value
+        let tempMinNum = Number(tempMin_ipt.value)
+        let tempMaxTex = tempMax_ipt.value
+        let tempMaxNum = Number(tempMax_ipt.value)
+        let tempCritTex = tempCrit_ipt.value
+        let tempCritNum = Number(tempCrit_ipt.value)
+
+        // Validações do campo numeroContainer
+        if (numeroContainer == 0) {
+            alert(`Identifique a qual container pertence esta carga!`)
+            numeroContainer_ipt.value = '';
+            numeroContainer_ipt.focus();
+        }
+        else if (numeroContainer < 0) {
+            alert(`Não é possível identificação com número negativo`)
+            numeroContainer_ipt.value = '';
+            numeroContainer_ipt.focus();
+        }
+        else if (numeroContainer % 1 != 0) {
+            alert(`A numeração do contêiner deve ser um número inteiro!`)
+            numeroContainer_ipt.value = '';
+            numeroContainer_ipt.focus();
+        }
+
+        // Validações do campo carga total
+        else if (cargaTexto === '') {
+            alert(`Informe o peso da carga!`)
+            cargaTotal_ipt.focus();
+        }
+        else if (cargaTotal == 0) {
+            alert(`Não é possível cadastrar com peso nulo!`)
+            cargaTotal_ipt.value = '';
+            cargaTotal_ipt.focus();
+        }
+        else if (cargaTotal < 0) {
+            alert(`Não é possível cadastrar com peso negativo!`)
+            cargaTotal_ipt.value = '';
+            cargaTotal_ipt.focus();
+        }
+
+        // Validações do campo Valor por kg da carga
+        else if (valorKg == 0) {
+            alert(`Não é possível cadastrar carga sem valor por quilograma!`)
+            valorKg_ipt.value = '';
+            valorKg_ipt.focus();
+        }
+        else if (valorKg < 0) {
+            alert(`Não é possível cadastrar carga com valor negativo por quilograma!`)
+            valorKg_ipt.value = '';
+            valorKg_ipt.focus();
+        }
+
+        // Validações dos campos de temperatura
+        else if (tempMinTex === '') {
+            alert(`Informe a temperatura mínima!`)
+            tempMin_ipt.focus();
+        }
+        else if (tempMaxTex === '') {
+            alert(`Informe a temperatura máxima!`)
+            tempMax_ipt.focus();
+        }
+        else if (tempCritTex === '') {
+            alert(`Informe a temperatura crítica!`)
+            tempCrit_ipt.focus();
+        }
+        else if (tempMinNum > tempMaxNum) {
+            alert(`Não é possível que a temperatura mínima seja maior que a temperatura máxima!`)
+            tempMin_ipt.value = '';
+            tempMin_ipt.focus();
+        }
+        else if (tempMaxNum > tempCritNum) {
+            alert(`Temperatura máxima deve ser menor ou igual à temperatura crítica!`)
+            tempMax_ipt.value = '';
+            tempMax_ipt.focus();
+        }
+
+        // Caso todas as validações estejam corretas
+        else {
+            alert(`Contêiner cadastrado com sucesso!`)
+
+            // Redireciona para a dashboard geral
+            window.location.href = "../Site_Dash_Geral/dashboard_geral.html"
+        }
+    }
+</script>
