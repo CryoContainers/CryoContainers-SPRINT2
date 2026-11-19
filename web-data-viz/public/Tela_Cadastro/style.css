@@ -137,10 +137,11 @@ body {
 }
 
 .formulario {
-    width: 70%;
+    width: 65%;
     display: flex;
     flex-direction: column;
     margin: 0 auto;
+    
 }
 
 .textos_painel_esquerdo {
@@ -173,30 +174,30 @@ body {
 
 .campos {
     font-family: Inter;
-    margin: 0px 0px 5px 0px;
+    margin: 0px 0px 3px 0px;
     font-weight: 400;
     color: #063354;
-    font-size: 20px;
+    font-size: 16px;
 }
 
 .bem_vindo {
     font-family: Junge;
-    font-size: 42px;
+    font-size: 34px;
     font-weight: 200;
     color: #063354;
-    margin: 0 0 15px 0;
+    margin: 0 0 10px 0;
 }
 
 input {
     display: block;
     width: 100%;
-    height: 35px;
+    height: 30px;
     padding: 5px;
     border: 1px solid #8CC2D5;
     border-radius: 5px;
     font-family: Inter;
-    font-size: 14px;
-    margin-bottom: 8px;
+    font-size: 13px;
+    margin-bottom: 5px;
 }
 
 .botao_conta {
@@ -227,7 +228,8 @@ input {
 
 button {
     width: 100%;
-    height: 50px;
+    height: 40px;
+    font-size: 16px;
     cursor: pointer;
 }
 
@@ -242,7 +244,7 @@ button {
 
 .campos-senha {
     display: flex;
-    gap: 20px;
+    gap: 15px;
     width: 100%;
 }
 
@@ -255,7 +257,7 @@ button {
 
 .campos-senha input {
     width: 100%;
-    height: 40px;
+    height: 30px;
 }
 
 #cadastro_efetuado {
@@ -264,4 +266,42 @@ button {
     font-weight: 800;
     text-decoration: underline;
     font-size: 20px;
+}
+
+.popover-requisitos {
+    background-color: white;
+    border: 1px solid #8CC2D5;
+    border-radius: 5px;
+    line-height: 0;
+
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-4px);
+    transition: opacity .2s, transform .2s, visibility .2s;
+    position: absolute;
+    top: 100%;
+    left: 0;
+    width: 100%;
+    
+    font-size: 15px;
+}
+
+.popover-requisitos p {
+    margin-left: 10px;
+}
+
+.validacoes {
+    margin-left: 22px;
+    line-height: 0.01;
+    list-style-type: disc;
+}
+
+.senha {
+    top: 100%;
+    position: relative;
+}
+.senha:focus-within .popover-requisitos {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
 }

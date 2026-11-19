@@ -58,9 +58,20 @@
                     <input type="text" id="token_ipt" class="campos_input">
 
                     <div class="campos-senha">
-                        <div>
+                        <div class="senha">
                             <p class="campos" for="senha_ipt">Senha</p>
-                            <input type="password" id="senha_ipt">
+                            <input type="password" id="senha_ipt" onkeyup="validar()">
+                            <div class="popover-requisitos">
+                                <p>Sua senha deve conter:</p><br>
+                                <div class="validacoes">
+                                    <p id="regra_tamanho" style="color: gray;">● Mínimo de 8 caracteres</p>
+                                    <p id="regra_maiuscula" style="color: gray;">● Uma letra maiúscula</p>
+                                    <p id="regra_minuscula" style="color: gray;">● Uma letra minúscula</p>
+                                    <p id="regra_numero" style="color: gray;">● Um número</p>
+                                    <p id="regra_especial" style="color: gray;">● Um caractere especial (! ? @ # :)</p>
+                                </div>
+
+                            </div>
                         </div>
 
                         <div>
@@ -105,6 +116,46 @@
         }
 
         listar()
+
+        function validar() {
+            let senha = senha_ipt.value
+
+            if (senha.length >= 8) {
+                regra_tamanho.innerHTML = `<span style="color: green;">● Mínimo de 8 caracteres</span>`
+            } else {
+                regra_tamanho.innerHTML = `<span style="color: gray;">● Mínimo de 8 caracteres</span>`
+            }
+
+            if (senha != senha.toLowerCase()) {
+                regra_maiuscula.innerHTML = `<span style="color: green;">● Uma letra maiúscula</span>`
+            } else {
+                regra_maiuscula.innerHTML = `<span style="color: gray;">● Uma letra maiúscula</span>`
+            }
+
+            if (senha != senha.toUpperCase()) {
+                regra_minuscula.innerHTML = `<span style="color: green;">● Uma letra minúscula</span>`
+            } else {
+                regra_minuscula.innerHTML = `<span style="color: gray;">● Uma letra minúscula</span>`
+            }
+
+            if (senha.includes('0') || senha.includes('1') ||
+                senha.includes('2') || senha.includes('3') ||
+                senha.includes('4') || senha.includes('5') ||
+                senha.includes('6') || senha.includes('7') ||
+                senha.includes('8') || senha.includes('9')) {
+                regra_numero.innerHTML = `<span style="color: green;">● Um número</span>`
+            } else {
+                regra_numero.innerHTML = `<span style="color: gray;">● Um número</span>`
+            }
+
+            if (senha.includes('?') || senha.includes('!') ||
+                senha.includes('@') || senha.includes('#') ||
+                senha.includes(':')) {
+                regra_especial.innerHTML = `<span style="color: green;">● Um caractere especial (! ? @ # :)</span>`
+            } else {
+                regra_especial.innerHTML = `<span style="color: gray;">● Um caractere especial (! ? @ # :)</span>`
+            }
+        }
 
         function criar() {
             let nome = nome_ipt.value
